@@ -98,7 +98,7 @@ const Dashboard = () => (
                   </div>
                   <div className="flex items-center ps-10">
                     <div className="w-8  rounded-full flex items-center justify-center mr-1">
-                      <i class="fa-solid fa-thumbtack"></i>
+                      <i class="fa-solid fa-copy"></i>
                     </div>
 
                     <div>
@@ -111,7 +111,7 @@ const Dashboard = () => (
                      <i class="fa-solid fa-copy"></i>
                     </div>
                     <div>
-                      <p className="font-medium flex items-center justify-center">1 Page</p>
+                      <p className="font-medium flex items-center justify-center">1 Comment</p>
                     </div>
                   </div>
                 </div>
