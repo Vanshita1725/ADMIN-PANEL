@@ -12,14 +12,14 @@ const Dashboard = () => (
       <main className="flex-1 ml-46 bg-gray-100 font-sans text-gray-800">
         <div className=" mx-4">
           <div className="flex justify-end"><button className=" px-4 py-2 rounded-lg">Screen Options</button></div>
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between ">
             <p className="text-2xl font-normal mb-2">Dashboard</p>
           </div>
 
           {/* Welcome Panel */}
           <div className="bg-white shadow-xs mb-6">
             <div className="mb-6 text-white bg-black p-7 pt-10 h-55">
-              <h1 className="text-2xl font-normal mb-2">Welcome to WordPress!</h1>
+              <h1 className="!text-2xl font-normal mb-2">Welcome to WordPress!</h1>
               <p className="text-white underline !text-lg">Learn more about the 6.8.1 version.</p>
             </div>
 
@@ -69,7 +69,7 @@ const Dashboard = () => (
                   <p className="text-gray-600 text-sm mb-4">
                     Tweak your site, or give it a whole new look! Get creative — how about a new color palette or font?
                   </p>
-                  <Link className="!text-blue-500 !text-sm !underline py-3 mt-3">
+                  <Link className="!text-blue-500 !text-sm !underline py-3 ">
                     Edit styles
                   </Link>
                 </div>
@@ -93,7 +93,7 @@ const Dashboard = () => (
                     </div>
 
                     <div>
-                      <p className="font-medium">1 Post</p>
+                      <p className="font-medium flex items-center justify-center">1 Post</p>
                     </div>
                   </div>
                   <div className="flex items-center ps-10">
@@ -102,16 +102,16 @@ const Dashboard = () => (
                     </div>
 
                     <div>
-                      <p className="font-medium">1 Page</p>
+                      <p className="font-medium flex items-center justify-center">1 Page</p>
                     </div>
                   </div>
                      </div>
                   <div className="flex items-center">
                     <div className="w-8 h-8  rounded-full flex items-center justify-center mr-3">
-                      <i class="fa-solid fa-message"></i>
+                     <i class="fa-solid fa-copy"></i>
                     </div>
                     <div>
-                      <p className="font-medium">1 Page</p>
+                      <p className="font-medium flex items-center justify-center">1 Page</p>
                     </div>
                   </div>
                 </div>
@@ -119,8 +119,8 @@ const Dashboard = () => (
 
               {/* Site Health Status */}
               <div className="bg-white rounded-lg shadow p-4">
-                <h2 className="text-lg font-semibold mb-4">Site Health Status</h2>
-                <p className="text-sm text-gray-600 mb-3">
+                <h2 className="!text-lg font-semibold mb-4">Site Health Status</h2>
+                <p className="!text-sm text-gray-600 mb-3">
                   You're the best of this issue that should be addressed as soon as possible to improve its performance and security.
                 </p>
                 <div className="flex items-center mb-3">
