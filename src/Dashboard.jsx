@@ -108,7 +108,7 @@ const Dashboard = () => (
                      </div>
                   <div className="flex items-center">
                     <div className="w-8 h-8  rounded-full flex items-center justify-center mr-3">
-                     <i class="fa-solid fa-copy"></i>
+                    <i class="fa-solid fa-message"></i>
                     </div>
                     <div>
                       <p className="font-medium flex items-center justify-center">1 Comment</p>
@@ -123,15 +123,13 @@ const Dashboard = () => (
                 <p className="!text-sm text-gray-600 mb-3">
                   You're the best of this issue that should be addressed as soon as possible to improve its performance and security.
                 </p>
-                <div className="flex items-center mb-3">
+                <div className=" items-center mb-3">
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                    <i className="fas fa-exclamation-triangle text-yellow-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <p className="font-medium">Should be improved</p>
+                    <i className="fas fa-exclamation-triangle text-yellow-600 !text-xl"></i>
+                    <p className="font-medium !text-xs">Should be improved</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="!text-sm text-gray-600">
                   Take a look at the 8 items on the Site Health screen.
                 </p>
               </div>
