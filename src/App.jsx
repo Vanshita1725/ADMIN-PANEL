@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Dashboard from './Dashboard'
 import DiscussionSettings from './DiscussionSettings'
@@ -10,13 +10,11 @@ import ReadingSettings from './ReadingSettings'
 import WritingSettings from './WritingSettings'
 import AddPage from './Addpage'
 import AllPage from './AllPage'
-import Home from './Home'
 import Themes from './Themes'
 import Alluser from './Alluser'
 import Adduser from './Adduser'
 import Allpost from './Allpost'
 import Profile from './Profile'
-import Medialibrary from './medialibrary'
 import Comment from './Comment'
 import Medianew from './MediaNew'
 import Browsermediafile from './Browsermediafile'
@@ -24,12 +22,14 @@ import Addpost from './Addpost'
 import Categories from './Categories'
 import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
+import Library from './Library'
+
 
 function App() {
   return (
     <div>
       <Routes>
-        
+        <Route path="/" element={<Dashboard />} />
         <Route path="/Home" element={< Dashboard />} />
         <Route path="/GeneralSettings" element={<GeneralSettings />} />
         <Route path="/WritingSettings" element={<WritingSettings />} /> 
@@ -45,7 +45,7 @@ function App() {
         <Route path="/Adduser" element={<Adduser />} />
         <Route path="/Profile" element={< Profile/>} />
         <Route path="/Allpost" element={<Allpost />} />
-        <Route path="/Medialibrary" element={<Medialibrary />} />
+        <Route path="/Library" element={<Library />} />
         <Route path="/Comments" element={<Comment />} />
         <Route path="/Medianew" element={<Medianew />} />
         <Route path="/Browsermediafile" element={<Browsermediafile />} />

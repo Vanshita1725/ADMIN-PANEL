@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
-export default function Medialibrary() {
+export default function Library() {
   // No media items for this view
   const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState("grid");
