@@ -22,7 +22,7 @@ import Categories from './Categories'
 import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
-import MediaNew from './Medianew'
+import MediaNew from './MediaNew'
 
 
 function App() {
