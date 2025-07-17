@@ -16,14 +16,13 @@ import Adduser from './Adduser'
 import Allpost from './Allpost'
 import Profile from './Profile'
 import Comment from './Comment'
-// import Medianew from './MediaNew'
 import Browsermediafile from './Browsermediafile'
 import Addpost from './Addpost'
 import Categories from './Categories'
 import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
-import MediaNew from './MediaNew'
+import MediaNew from './Medianew'
 
 
 function App() {
