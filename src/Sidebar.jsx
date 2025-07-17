@@ -1,145 +1,109 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Tooltip } from 'bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
-  const [openDropdown, setOpenDropdown] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const tooltipRefs = useRef([]);
-  
+  const navigate = useNavigate();
+
   const menuItems = [
     { 
       label: 'Dashboard', 
-      to: '/Dashboard', 
       icon: <i className="fa-solid fa-gauge"></i>, 
       dropdown: [
-        { label: 'Overview', to: '/Dashboard' },
-        { label: 'Stats', to: '/dashboard/stats' },
-        { label: 'Reports', to: '/dashboard/reports' }
+        { label: 'Home', to: '/Home' },
+        { label: 'Updates', to: '/Dashbordupdated' }
       ] 
     },
-
     { 
       label: 'Posts', 
-      to: '/posts', 
       icon: <i className="fa-solid fa-thumbtack"></i>, 
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'All Posts', to: '/Allpost' },
+        { label: 'Add Post', to: '/Addpost' },
+        { label: 'Categories', to: '/Categories' },
+        { label: 'Tags', to: '/Posttage' }
       ] 
     },
-
     { 
       label: 'Media', 
-      to: '/Media', 
       icon: <i className="fa-solid fa-photo-film"></i>,
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'Library', to: '/medialibrary' },
+        { label: 'Add Media File', to: '/Medianew' }
       ] 
     },
-
     { 
       label: 'Pages', 
-      to: '/Pages', 
-      icon:<ion-icon name="copy-outline"></ion-icon>,
+      icon: <ion-icon name="copy-outline"></ion-icon>,
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'All Page', to: '/Allpage' },
+        { label: 'Add Page', to: '/Addpage' }
       ] 
     },
-
-
     { 
       label: 'Comments', 
       to: '/Comments', 
-      icon: <ion-icon name="chatbox-outline"></ion-icon>, 
-      dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
-      ] 
+      icon: <ion-icon name="chatbox-outline"></ion-icon> 
     },
-
-
     { 
       label: 'Appearance', 
-      to: '/Appearance', 
       icon:<i className="fa-solid fa-brush"></i>, 
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'Themes', to: '/Themes' },
+        { label: 'Editor', to: '/Editor' }
       ] 
     },
-
-
     { 
       label: 'Plugins', 
-      to: '/Plugins', 
       icon: <i className="fa-solid fa-plug"></i>, 
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'Installed Plugins', to: '/Installpligins' },
+        { label: 'Add Plugins', to: '/Addplugins' },
+        
       ] 
     },
-
-
     { 
       label: 'Users', 
-      to: '/Users', 
       icon: <i className="fa-solid fa-user"></i>, 
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'All User', to: '/Alluser' },
+        { label: 'Add User',  to: '/Adduser' },
+        { label: 'Profile', to: '/Profile' }
       ] 
     },
-
     { 
       label: 'Tools', 
-      to: '/Tools', 
       icon: <i className="fa-solid fa-wrench"></i>, 
       dropdown: [
-        { label: 'All Posts', to: '/posts/all' },
-        { label: 'Add Post', to: '/posts/add' },
-        { label: 'Categories', to: '/posts/categories' },
-        { label: 'Tags', to: '/posts/tags' }
+        { label: 'Available Tools', to: '/posts/all' },
+        { label: 'Import', to: '/posts/add' },
+        { label: 'Export', to: '/posts/categories' },
+        { label: 'Site Health', to: '/posts/tags' },
+        { label: 'Export Personal Data', to: '/posts/all' },
+        { label: 'Erase Personal Data', to: '/posts/add' },
+        { label: 'Theme File Editor', to: '/posts/categories' },
+        { label: 'Plugin File Editor', to: '/posts/tags' }
       ] 
     },
-
-
     { 
       label: 'Setting', 
-      to: '/Setting', 
       icon: <i className="fa-solid fa-sliders"></i>, 
       dropdown: [
         { label: 'General', to: '/GeneralSettings' },
-        { label: 'Writting', to: '/WritingSettings' },
+        { label: 'Writing', to: '/WritingSettings' },
         { label: 'Reading', to: '/ReadingSettings' },
         { label: 'Discussion', to: '/DiscussionSettings' },
-         { label: 'Media', to: '/MediaSettings' },
-          { label: 'Permalinks', to: '/PermalinkSettings' },
-           { label: 'Privacy', to: '/PrivacySettings' }
-
-         
+        { label: 'Media', to: '/MediaSettings' },
+        { label: 'Permalinks', to: '/PermalinkSettings' },
+        { label: 'Privacy', to: '/PrivacySettings' }
       ] 
     }
-    // ... (rest of your menu items remain the same)
   ];
 
-  // Initialize tooltips
   useEffect(() => {
     const style = document.createElement('style');
     style.innerHTML = `
@@ -194,74 +158,65 @@ const Sidebar = () => {
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
-    // Close all dropdowns when collapsing
-    if (!isCollapsed) {
+    setOpenDropdown(null); // close any open dropdown
+  };
+
+  const handleMenuClick = (item, index) => {
+    if (item.dropdown) {
+      navigate(item.dropdown[0].to); // navigate to first sub-page
+      setOpenDropdown(index); // always open dropdown regardless of collapsed
+    } else if (item.to) {
+      navigate(item.to);
       setOpenDropdown(null);
     }
   };
 
   return (
-    <div>
-      <aside 
-        className={`bg-[#23282d] !text-white fixed top-10 py-4 left-0 flex flex-col shadow-lg transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-46'}`}
-        style={{ height: 'calc(100vh - 2rem)', overflowY: 'auto', scrollbarWidth: 'thin' }}
-      >
-        <ul className="flex flex-col gap-1 mt-1 px-2">
-          {menuItems.map((item, idx) => (
-            <li key={item.label} className="nav-item !text-sm !text-white flex flex-col gap-1 relative">
-              <Link
-                to={item.to}
-                ref={el => tooltipRefs.current[idx] = el}
-                className={`flex items-center !text-white gap-2 cursor-pointer py-2 px-2 hover:bg-[#32373c] rounded ${isCollapsed ? 'justify-center' : ''}`}
-                onClick={(e) => {
-                  if (item.dropdown && !isCollapsed) {
-                    e.preventDefault();
-                    setOpenDropdown(openDropdown === idx ? null : idx);
-                  }
-                }}
-              >
-                <span className={`${isCollapsed ? 'mr-0' : 'mr-2'}`}>{item.icon}</span>
-                {!isCollapsed && (
-                  <>
-                    <span>{item.label}</span>
-                    {item.badge && (
-                      <span className="flex bg-red-600 text-white !text-sm px-2 py-1 rounded-full ml-2">
-                        {item.badge}
-                      </span>
-                    )}
-                  </>
-                )}
-              </Link>
-              
-              {/* Dropdown with links - only show when not collapsed */}
-              {!isCollapsed && openDropdown === idx && item.dropdown && (
-                <ul className="mt-1 mb-2 bg-[#23282d] border-[#0073aa] rounded">
-                  {item.dropdown.map((subItem, subIdx) => (
-                    <li key={subIdx}>
-                      <Link 
-                        to={subItem.to}
-                        className="block py-1 px-2 hover:bg-[#32373c] rounded cursor-pointer !text-sm !text-white"
-                      >
-                        {subItem.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-          <li className='nav-item px-2 flex !text-sm gap-4 items-center'>
-            <button 
-              className='!bg-transparent !p-0'
-              onClick={toggleSidebar}
+    <aside 
+      className={`bg-[#23282d] text-white fixed top-10 py-4 left-0 flex flex-col shadow-lg transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-46'}`}
+      style={{ height: 'calc(100vh - 2rem)', overflowY: 'auto', scrollbarWidth: 'thin' }}
+    >
+      <ul className="flex flex-col gap-1 mt-1 px-2">
+        {menuItems.map((item, idx) => (
+          <li key={item.label} className="nav-item text-sm flex flex-col gap-1 relative">
+            <div
+              ref={el => tooltipRefs.current[idx] = el}
+              className={`flex items-center no-underline text-white gap-2 cursor-pointer py-2 px-2 hover:bg-[#32373c] rounded ${isCollapsed ? 'justify-center' : ''}`}
+              onClick={() => handleMenuClick(item, idx)}
             >
-              <i className={`fa-solid fa-circle-chevron-${isCollapsed ? 'right' : 'left'}`}></i>
-            </button> 
-            {!isCollapsed && 'Collapse Menu'}
+              <span>{item.icon}</span>
+              {!isCollapsed && <span>{item.label}</span>}
+            </div>
+
+            {/* Dropdown below the item */}
+            {!isCollapsed && openDropdown === idx && item.dropdown && (
+              <ul className="mt-1 mb-2    ">
+                {item.dropdown.map((subItem, subIdx) => (
+                  <li key={subIdx}>
+                    <Link 
+                      to={subItem.to}
+                      className="block py-1 text-sm !no-underline !text-white hover:bg-[#32373c] rounded px-2"
+                    >
+                      {subItem.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
-        </ul>
-      </aside>
-    </div>
+        ))}
+
+        <li className='nav-item px-2 flex text-sm gap-4 items-center'>
+          <button 
+            className='bg-transparent p-0'
+            onClick={toggleSidebar}
+          >
+            <i className={`fa-solid fa-circle-chevron-${isCollapsed ? 'right' : 'left'}`}></i>
+          </button> 
+          {!isCollapsed && 'Collapse Menu'}
+        </li>
+      </ul>
+    </aside>
   );
 };
 

@@ -34,7 +34,7 @@ export default function MediaSettings() {
     <div>
       <Header />
       <main className="flex flex-col mx-auto bg-gray-100 min-h-screen p-0">
-        <div className='flex flex-row'>
+        <div className='flex  flex-row'>
           <div className="w-46">
             <Sidebar />
           </div>
