@@ -24,6 +24,7 @@ import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
 import Medianew from './MediaNew'
+import MediaNew from './MediaNew'
 
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
         <Route path="/Allpost" element={<Allpost />} />
         <Route path="/Library" element={<Library />} />
         <Route path="/Comments" element={<Comment />} />
-        <Route path="/Medianew" element={<Medianew />} />
+        <Route path="/MediaNew" element={<MediaNew />} />
         {/* <Route path="/Medianew" element={<Medianew />} /> */}
         <Route path="/Browsermediafile" element={<Browsermediafile />} />
         <Route path="/Addpost" element={<Addpost />} />
