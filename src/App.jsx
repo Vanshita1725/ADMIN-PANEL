@@ -16,13 +16,14 @@ import Adduser from './Adduser'
 import Allpost from './Allpost'
 import Profile from './Profile'
 import Comment from './Comment'
-import Medianew from './MediaNew'
+// import Medianew from './MediaNew'
 import Browsermediafile from './Browsermediafile'
 import Addpost from './Addpost'
 import Categories from './Categories'
 import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
+import Medianew from './MediaNew'
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <Route path="/Library" element={<Library />} />
         <Route path="/Comments" element={<Comment />} />
         <Route path="/Medianew" element={<Medianew />} />
+        {/* <Route path="/Medianew" element={<Medianew />} /> */}
         <Route path="/Browsermediafile" element={<Browsermediafile />} />
         <Route path="/Addpost" element={<Addpost />} />
         <Route path="/Categories" element={<Categories />} />

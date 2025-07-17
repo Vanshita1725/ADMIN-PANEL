@@ -33,7 +33,7 @@ const Sidebar = () => {
       icon: <i className="fa-solid fa-photo-film"></i>,
       dropdown: [
         { label: 'Library', to: '/Library' },
-        { label: 'Add Media File', to: '/Medianew' }
+        { label: 'Add Media File', to: '/MediaNew' }
       ] 
     },
     { 
