@@ -23,7 +23,6 @@ import Categories from './Categories'
 import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
-import Medianew from './MediaNew'
 import MediaNew from './MediaNew'
 
 
@@ -50,7 +49,6 @@ function App() {
         <Route path="/Library" element={<Library />} />
         <Route path="/Comments" element={<Comment />} />
         <Route path="/MediaNew" element={<MediaNew />} />
-        {/* <Route path="/Medianew" element={<Medianew />} /> */}
         <Route path="/Browsermediafile" element={<Browsermediafile />} />
         <Route path="/Addpost" element={<Addpost />} />
         <Route path="/Categories" element={<Categories />} />
