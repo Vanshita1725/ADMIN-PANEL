@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function MediaNew() {
   const [files, setFiles] = useState([]);
