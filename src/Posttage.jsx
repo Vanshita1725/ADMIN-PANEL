@@ -48,7 +48,7 @@ export default function Posttage() {
   return (
     <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
       <Header />
-      <div className="flex flex-1 w-full mt-10 max-w-7xl ms-48 py-8 px-4 gap-6">
+      <div className="flex flex-1 w-full mt-10 max-w-7xl lg:ms-48 py-8 px-4 gap-6">
         <Sidebar />
         <main className="flex-1 min-w-0">
           <h1 className="!text-2xl !font-normal pb-3 text-gray-900">Tags</h1>

@@ -37,11 +37,11 @@ const GeneralSettings = () => {
   return (
      <div>
       <Header />     
-      <main className="flex flex-col mx-auto bg-gray-100 min-h-screen p-0">
+      <main className="flex flex-col lg:ms-46 bg-gray-100 min-h-screen p-0">
         <div className='flex flex-row'>
-          <div className="w-46">
+       
             <Sidebar />
-          </div>
+        
           <div className="flex-1 mt-10 bg-gray-100 border border-[#e5e7eb] rounded shadow-sm p-8">
             <h1 className="!text-3xl !font-semibold text-[#1d2327] mb-8">General Settings</h1>
             <form onSubmit={handleSubmit}>
@@ -82,7 +82,7 @@ const GeneralSettings = () => {
               <div className="flex items-start mb-6">
                 <label className="w-56 font-semibold pr-5 pt-2">Site Icon</label>
                 <div className="flex-1">
-                  <form>
+                  <div>
                     <input
                       type="file"
                       accept="image/*"
@@ -100,7 +100,7 @@ const GeneralSettings = () => {
                         }
                       }}
                     />
-                  </form>
+                  </div>
                   <img id="site-icon-preview" alt="Site Icon Preview" className="mt-2 rounded border w-16 h-16 object-cover" style={{ display: 'none' }} onLoad={e => e.target.style.display = 'block'} />
                   <p className="text-[#646970] text-xs mt-1">
                     The Site Icon is what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. It should be square and at least

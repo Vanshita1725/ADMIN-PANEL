@@ -53,7 +53,7 @@ const Comment = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Header />
-        <main className="p-6 max-w-8xl mt-5 ms-46 flex-1">
+        <main className="p-6 max-w-8xl mt-5 lg:ms-46 flex-1">
           {/* Page Title and item count */}
           <div className="flex justify-between items-center mb-2">
             <h1 className="!text-2xl  !font-normal">Comments</h1>

@@ -34,6 +34,7 @@ export default function Profile() {
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [bio, setBio] = useState("");
+  const [profilePicPreview, setProfilePicPreview] = useState("");
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -41,60 +42,63 @@ export default function Profile() {
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 overflow-y-auto p-0">
-          <div className="max-w-4xl mx-auto py-10 px-4">
-            <h1 className="text-2xl font-bold mb-8">Profile</h1>
-            <div className="bg-white rounded-xl shadow p-8">
-              <h2 className="text-lg font-semibold mb-6">Personal Options</h2>
+          <div className="max-w-7xl mt-8 lg:ms-46 py-10 px-4">
+            <h1 className="!text-2xl !font-normal mb-8">Profile</h1>
+            <div className=" rounded-xl mt-6">
+              <h2 className="!text-lg !font-normal mb-6">Personal Options</h2>
               <div className="space-y-8">
                 {/* Syntax Highlighting */}
-                <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Syntax Highlighting</div>
-                  <div className="flex items-center">
+                <div className="flex">
+                  <div className="w-45 !text-sm font-medium text-gray-700">Syntax Highlighting</div>
+                  <div className="flex gap-2 items-center">
                     <input
                       id="syntaxHighlight"
                       type="checkbox"
                       checked={syntaxHighlight}
                       onChange={e => setSyntaxHighlight(e.target.checked)}
-                      className="mr-2"
+                      className="mr-2 p-6"
                     />
-                    <label htmlFor="syntaxHighlight" className="text-gray-700">Disable syntax highlighting when editing code</label>
+                    <label htmlFor="syntaxHighlight" className="text-gray-700 !text-sm">Disable syntax highlighting when editing code</label>
                   </div>
                 </div>
                 {/* Admin Color Scheme */}
                 <div className="flex items-start">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700 pt-2">Admin Color Scheme</div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4">
-                    {colorSchemes.map((scheme, idx) => (
+                  <div className="w-64 pr-6 font-medium text-gray-700 pt-2">Admin Color Scheme</div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6">
+                    {colorSchemes.map((scheme) => (
                       <label
                         key={scheme.value}
-                        className={`flex items-center cursor-pointer rounded-lg transition border ${colorScheme === scheme.value ? "border-blue-400 bg-blue-50" : "border-transparent hover:border-gray-300"} px-3 py-2`}
+                        className={`flex flex-col items-start cursor-pointer  transition  px-4 py-3 min-w-[250px]  ${colorScheme === scheme.value ? "border-gray-300 bg-gray-200" : " hover:border-gray-300"}`}
+                        style={{ boxShadow: colorScheme === scheme.value ? "0 2px 8px 0 rgba(0,0,0,0.04)" : undefined }}
                       >
-                        <input
-                          type="radio"
-                          name="colorScheme"
-                          value={scheme.value}
-                          checked={colorScheme === scheme.value}
-                          onChange={() => setColorScheme(scheme.value)}
-                          className="mr-3 accent-blue-600"
-                        />
-                        <span className="font-medium mr-3 min-w-[70px]">{scheme.label}</span>
-                        <span className="flex space-x-1">
+                        <div className="flex items-center mb-2">
+                          <input
+                            type="radio"
+                            name="colorScheme"
+                            value={scheme.value}
+                            checked={colorScheme === scheme.value}
+                            onChange={() => setColorScheme(scheme.value)}
+                            className="mr-2 accent-blue-600"
+                          />
+                          <span className="font-medium text-lg">{scheme.label}</span>
+                        </div>
+                        <div className="flex flex-row  mt-1">
                           {scheme.colors.map((color, i) => (
                             <span
                               key={i}
-                              className="w-7 h-4 rounded"
-                              style={{ background: color, border: "1px solid #ccc" }}
+                              className="h-5 w-20 "
+                              style={{ background: color,  }}
                             />
                           ))}
-                        </span>
+                        </div>
                       </label>
                     ))}
                   </div>
                 </div>
                 {/* Keyboard Shortcuts */}
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Keyboard Shortcuts</div>
-                  <div className="flex items-center">
+                  <div className="w-45  pr-6 font-medium text-gray-700">Keyboard Shortcuts</div>
+                  <div className="flex gap-2 items-center">
                     <input
                       id="keyboardShortcuts"
                       type="checkbox"
@@ -108,8 +112,8 @@ export default function Profile() {
                 </div>
                 {/* Toolbar */}
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Toolbar</div>
-                  <div className="flex items-center">
+                  <div className="w-45 pr-6 font-medium text-gray-700">Toolbar</div>
+                  <div className="flex gap-2 items-center">
                     <input
                       id="toolbar"
                       type="checkbox"
@@ -117,23 +121,19 @@ export default function Profile() {
                       onChange={e => setToolbar(e.target.checked)}
                       className="mr-2 accent-blue-600"
                     />
-                    <label htmlFor="toolbar" className="text-gray-700">Show Toolbar when viewing site</label>
+                    <label htmlFor="toolbar" className="!text-sm text-gray-700">Show Toolbar when viewing site</label>
                   </div>
                 </div>
               </div>
 
               {/* Language */}
               <div className="flex items-center mt-12 mb-8">
-                <div className="w-64 text-right pr-6 font-medium text-gray-700 flex items-center">
+                <div className="w-45  pr-6 font-medium text-gray-700 flex items-center">
                   Language
-                  <span className="ml-2">
-                    <svg className="inline w-5 h-5 text-gray-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m0 4v12m0 0l-3-3m3 3l3-3" />
-                    </svg>
-                  </span>
+                  
                 </div>
                 <select
-                  className="w-[320px] border border-gray-300 rounded px-3 py-2"
+                  className="w-70 border border-gray-300 rounded px-2 py-1"
                   value={language}
                   onChange={e => setLanguage(e.target.value)}
                 >
@@ -144,49 +144,49 @@ export default function Profile() {
               </div>
 
               {/* Name Section */}
-              <h2 className="text-xl font-semibold mt-10 mb-4">Name</h2>
+              <h1 className="!text-xl font-medium mt-10 mb-4">Name</h1>
               <div className="space-y-6 mb-8">
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Username</div>
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">Username</div>
                   <input
                     type="text"
-                    className="w-[600px] border border-gray-300 rounded px-3 py-2 bg-gray-100 text-gray-700"
+                    className="w-70 border border-gray-300 rounded px-2 py-1 bg-gray-100 text-gray-700"
                     value={username}
                     disabled
                   />
                   <span className="ml-4 text-gray-500">Usernames cannot be changed.</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">First Name</div>
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">First Name</div>
                   <input
                     type="text"
-                    className="w-[600px] border border-gray-300 rounded px-3 py-2"
+                    className="w-70 border border-gray-300 rounded px-2 py-1"
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
                   />
                 </div>
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Last Name</div>
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">Last Name</div>
                   <input
                     type="text"
-                    className="w-[600px] border border-gray-300 rounded px-3 py-2"
+                    className="w-70 border border-gray-300 rounded px-2 py-1"
                     value={lastName}
                     onChange={e => setLastName(e.target.value)}
                   />
                 </div>
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Nickname (required)</div>
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">Nickname (required)</div>
                   <input
                     type="text"
-                    className="w-[600px] border border-gray-300 rounded px-3 py-2"
+                    className="w-70 border border-gray-300 rounded px-2 py-1"
                     value={nickname}
                     onChange={e => setNickname(e.target.value)}
                   />
                 </div>
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Display name publicly as</div>
+                  <div className="w-46 pr-6 font-medium !text-sm text-gray-700">Display name publicly as</div>
                   <select
-                    className="w-[320px] border border-gray-300 rounded px-3 py-2"
+                    className="w-[320px] border border-gray-300 rounded px-2 py-1"
                     value={displayName}
                     onChange={e => setDisplayName(e.target.value)}
                   >
@@ -197,14 +197,14 @@ export default function Profile() {
               </div>
 
               {/* Contact Info Section */}
-              <h2 className="text-xl font-semibold mt-10 mb-4">Contact Info</h2>
+              <h1 className="!text-xl font-medium mt-10 mb-4">Contact Info</h1>
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700 pt-2">Email (required)</div>
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 pt-2">Email (required)</div>
                   <div className="flex-1">
                     <input
                       type="email"
-                      className="w-[400px] border border-gray-300 rounded px-3 py-2"
+                      className="w-70 border border-gray-300 rounded px-2 py-1"
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                     />
@@ -214,10 +214,10 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">Website</div>
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700">Website</div>
                   <input
                     type="url"
-                    className="w-[400px] border border-gray-300 rounded px-3 py-2"
+                    className="w-70 border border-gray-300 rounded px-2 py-1"
                     value={website}
                     onChange={e => setWebsite(e.target.value)}
                   />
@@ -225,10 +225,10 @@ export default function Profile() {
               </div>
 
               {/* About Yourself Section */}
-              <h2 className="text-xl font-semibold mt-10 mb-4">About Yourself</h2>
+              <h1 className="!text-xl font-medium mt-10 mb-4">About Yourself</h1>
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700 pt-2">Biographical Info</div>
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2">Biographical Info</div>
                   <div className="flex-1">
                     <textarea
                       className="w-[600px] border border-gray-300 rounded px-3 py-2 min-h-[120px]"
@@ -241,35 +241,53 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700 pt-2">Profile Picture</div>
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2">Profile Picture</div>
                   <div className="flex flex-col items-start">
-                    <div className="w-28 h-28 bg-gray-300 rounded mb-2 flex items-center justify-center">
-                      <svg className="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.7 0 4.5-1.8 4.5-4.5S14.7 3 12 3 7.5 4.8 7.5 7.5 9.3 12 12 12zm0 2c-3 0-9 1.5-9 4.5V21h18v-2.5c0-3-6-4.5-9-4.5z" />
-                      </svg>
-                    </div>
+                    <label htmlFor="profile-picture-upload" className="block cursor-pointer">
+                      <div className="w-[110px] h-[110px] bg-gray-400 mb-2 flex items-end justify-center" style={{borderRadius:0}}>
+                        {profilePicPreview ? (
+                          <img src={profilePicPreview} alt="Profile Preview" className="object-contain w-[80px] h-[80px]" />
+                        ) : (
+                          <i className="fa-solid fa-user text-white text-[80px]" style={{lineHeight:'1'}}></i>
+                        )}
+                        <input
+                          id="profile-picture-upload"
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={e => {
+                            const file = e.target.files && e.target.files[0];
+                            if (file) {
+                              const reader = new window.FileReader();
+                              reader.onload = ev => setProfilePicPreview(ev.target.result);
+                              reader.readAsDataURL(file);
+                            }
+                          }}
+                        />
+                      </div>
+                    </label>
                     <a href="#" className="text-blue-600 hover:underline text-sm">You can change your profile picture on Gravatar.</a>
                   </div>
                 </div>
               </div>
 
               {/* Account Management Section */}
-              <h2 className="text-xl font-semibold mt-10 mb-4">Account Management</h2>
+              <h2 className="!text-xl font-semibold mt-10 mb-4">Account Management</h2>
               <div className="space-y-6 mb-8">
                 <div className="flex items-center">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700">New Password</div>
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700">New Password</div>
                   <button
                     type="button"
-                    className="border border-blue-500 text-blue-700 px-4 py-2.5 rounded font-medium text-base hover:bg-blue-50 transition"
+                    className="border-1 bg-white  border-blue-500 text-blue-700 px-2 py-1 !text-xs rounded font-medium text-base hover:bg-blue-50 transition"
                   >
                     Set New Password
                   </button>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-64 text-right pr-6 font-medium text-gray-700 pt-2">Sessions</div>
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2">Sessions</div>
                   <div className="flex flex-col">
-                    <button type="button" className="border border-blue-500 text-blue-700 px-4 py-2 rounded hover:bg-blue-50 font-medium mb-1">Log Out Everywhere Else</button>
-                    <span className="text-gray-600 text-sm mt-1 block">
+                    <button type="button" className="border-1 border-gray-500 w-45 !text-xs text-gray-400 bg-gray-50 px-2 py-2 rounded hover:bg-blue-50 font-medium mb-1">Log Out Everywhere Else</button>
+                    <span className="text-gray-600 !text-sm mt-1 block">
                       Did you lose your phone or leave your account logged in at a public computer? You can log out everywhere else, and stay logged in here.
                     </span>
                   </div>
@@ -277,16 +295,16 @@ export default function Profile() {
               </div>
 
               {/* Application Passwords Section */}
-              <h2 className="text-xl font-semibold mt-10 mb-4">Application Passwords</h2>
+              <h2 className="!text-xl font-mideum mt-10 mb-4">Application Passwords</h2>
               <div className="mb-8 space-y-4">
-                <p className="text-gray-700">Application passwords allow authentication via non-interactive systems, such as XML-RPC or the REST API, without providing your actual password. Application passwords can be easily revoked. They cannot be used for traditional logins to your website.</p>
-                <p className="text-gray-700">The application password feature requires HTTPS, which is not enabled on this site.</p>
-                <p className="text-gray-700">If this is a development website, you can <a href="#" className="text-blue-600 underline hover:text-blue-800">set the environment type accordingly</a> to enable application passwords.</p>
+                <p className="text-gray-700 !text-sx">Application passwords allow authentication via non-interactive systems, such as XML-RPC or the REST API, without providing your actual password. Application passwords can be easily revoked. They cannot be used for traditional logins to your website.</p>
+                <p className="text-gray-700 !text-sx">The application password feature requires HTTPS, which is not enabled on this site.</p>
+                <p className="text-gray-700 !text-sx">If this is a development website, you can <a href="#" className="text-blue-600 underline hover:text-blue-800">set the environment type accordingly</a> to enable application passwords.</p>
               </div>
 
               {/* Update Profile Button */}
               <div className="mt-8">
-                <button type="button" className="bg-blue-600 text-white px-6 py-2 rounded font-semibold hover:bg-blue-700">Update Profile</button>
+                <button type="button" className="bg-blue-500 text-white px-3 py-2 !text-sm  font-normal hover:bg-blue-700">Update Profile</button>
               </div>
             </div>
           </div>

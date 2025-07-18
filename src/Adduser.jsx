@@ -51,7 +51,7 @@ export default function Adduser() {
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 mt-8 overflow-y-auto p-0">
-          <div className="max-w-3xl ms-46 py-8 px-4">
+          <div className="max-w-3xl lg:ms-46 py-8 px-4">
             <h1 className="!text-2xl !text-gray-700 !font-normal mb-3">Add User</h1>
             <p className="mb-8 text-gray-700">Create a brand new user and add them to this site.</p>
             <form className="space-y-6">

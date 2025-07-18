@@ -71,9 +71,9 @@ const AddPage = () => {
       <div className="bg-gray-100 min-h-screen pt-16 px-2 sm:px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full">
           {/* Page Sidebar */}
-          <div className="md:w-56 md:mr-2 mb-4 md:mb-0 w-full">
+          
             <Sidebar />
-          </div>
+          
           {/* Main Content */}
           <div className="flex-1 w-full max-w-full">
             <form onSubmit={handleSubmit} className="w-full">

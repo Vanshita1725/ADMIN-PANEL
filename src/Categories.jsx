@@ -60,11 +60,11 @@ export default function Categories() {
   return (
     <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
       <Header />
-      <div className="flex max-w-7xl ms-46 py-3 gap-6 px-4 mt-10 justify-between">
+      <div className="lg:flex max-w-7xl lg:ms-46 py-3 gap-6 px-4 mt-10 justify-between">
         <Sidebar />
         <div className="flex flex-col w-full ga p-2">
           <h1 className="!text-3xl !font-normal mb-20 text-gray-900">Categories</h1>
-          <div className="grid grid-cols-1 md:grid-cols-[450px_1fr]  gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[450px_1fr]  gap-8 items-start">
             {/* Add Category Form */}
             <form
               className="p-2 flex flex-col gap-3"
@@ -147,13 +147,13 @@ export default function Categories() {
             <div className="w-full">
               {/* Bulk actions and table */}
               {/* Search and Bulk actions */}
-               <div className="flex items-center relative w-105 -right-90 mb-3 gap-2">
+               <div className="lg:flex items-center relative lg:w-105 lg:-right-90 mb-3 gap-2">
                   <input
                     type="text"
                     placeholder=""
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                    className="border border-gray-400 rounded px-4 py-1 !text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 w-56"
+                    className="border border-gray-400 rounded px-4 py-1 !text-base bg-white focus:outline-none focus:ring-2 w-40 focus:ring-blue-500 lg:w-56"
                     style={{ boxShadow: 'none' }}
                   />
                   <button
@@ -173,7 +173,7 @@ export default function Categories() {
                   <button className="border border-blue-600 text-blue-700 bg-white px-3 py-1 rounded text-sm hover:bg-blue-50 transition-colors">
                     Apply
                   </button>
-                  <p className="items-flex justify-center flex relative -right-117">1 item </p>
+                  <p className="items-flex justify-center flex relative lg:-right-117">1 item </p>
                 </div>
               </div>
               <div className="overflow-x-auto border border-gray-200  bg-white">
@@ -307,7 +307,7 @@ export default function Categories() {
                 <button className="border border-blue-600 text-blue-700 bg-white px-3 py-1 rounded text-sm hover:bg-blue-50 transition-colors">
                   Apply
                 </button>
-                <p className="items-flex justify-center flex relative -right-117">1 item </p>
+                <p className="items-flex justify-center flex relative lg-right-117">1 item </p>
 
               </div>
               <div className="text-xs text-gray-700 mt-4">

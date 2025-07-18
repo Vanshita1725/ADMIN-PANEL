@@ -15,7 +15,7 @@ export default function Library() {
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 max-w-8xl overflow-y-auto p-0">
-          <div className="max-w-7xl mt-10 lg:ms-46 py-8 px-4">
+          <div className="max-w-7xl mt-10 ms-46 py-8 px-4">
             {/* Top title bar */}
             <div className="flex items-center gap-3 mb-4">
               <h1 className="!text-2xl !text-gray-500 !font-normal">Media Library</h1>

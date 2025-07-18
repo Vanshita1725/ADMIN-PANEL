@@ -16,6 +16,7 @@ import Adduser from './Adduser'
 import Allpost from './Allpost'
 import Profile from './Profile'
 import Comment from './Comment'
+// import Medianew from './MediaNew'
 import Browsermediafile from './Browsermediafile'
 import Addpost from './Addpost'
 import Categories from './Categories'
@@ -23,6 +24,12 @@ import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
 import MediaNew from './MediaNew'
+import Tools from './Tools'
+import Import from './Import.JSX'
+import Export from './Export'
+import Sitehealth from './Sitehealth'
+import ErasePersonalData from './ErasePersonalData'
+import ExportPersonalData from './EportPersonalData'
 
 
 function App() {
@@ -53,6 +60,13 @@ function App() {
         <Route path="/Categories" element={<Categories />} />
         <Route path="/Posttage" element={<Posttage />} />
         <Route path="/Dashbordupdated" element={<Dashbordupdated />} />
+        <Route path="/Tools" element={<Tools />} />
+        <Route path="/Import" element={<Import />} />
+        <Route path="/Export" element={<Export />} />
+        <Route path="/Sitehealth" element={<Sitehealth />} />
+        <Route path="/ErasePersonalData" element={<ErasePersonalData />} />
+        <Route path='/ExportPersonalData' element={<ExportPersonalData />} />
+        {/* Add more routes as needed */}
         </Routes>
     </div>
   )

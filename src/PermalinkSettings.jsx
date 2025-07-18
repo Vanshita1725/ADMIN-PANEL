@@ -24,25 +24,25 @@ export default function PermalinkSettings() {
   return (
     <div>
       <Header />
-      <main className="flex flex-col mx-auto bg-gray-100 min-h-screen p-0">
+      <main className="flex flex-col lg:ms-46 bg-gray-200 min-h-screen p-0">
         <div className='flex flex-row'>
-          <div className="w-46">
+          
             <Sidebar />
-          </div>
-          <div className="flex-1 mt-10 bg-white border border-[#e5e7eb] rounded shadow-sm p-8">
-            <h1 className="!text-3xl !font-semibold mb-4 text-gray-800">Permalink Settings</h1>
+          
+          <div className="flex-1 mt-10 bg-gray-200 border border-[#e5e7eb] rounded shadow-sm p-8">
+            <h1 className="!text-3xl !font-normal mb-4 text-gray-800">Permalink Settings</h1>
             <p className="text-xs sm:text-sm text-gray-600 mb-6">
               WordPress offers you the ability to create a custom URL structure for your permalinks and archives. Custom URL structures can improve the aesthetics, usability, and forward-compatibility of your links.{' '}
               <a href="#" className="text-blue-600">A number of tags are available</a>.
             </p>
-            <form onSubmit={handleSubmit} className="bg-gray-100 p-3 sm:p-4 md:p-6  overflow-x-auto">
+            <form onSubmit={handleSubmit} className="bg-gray-200 p-3 sm:p-4 md:p-6  overflow-x-auto">
               {/* Common Settings */}
               <section className="mb-8 md:mb-10">
-                <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-gray-800">Common Settings</h2>
+                <h1 className="!text-xl  font-normal mb-2 sm:mb-3 text-gray-800">Common Settings</h1>
                 <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-5">
                   Select the permalink structure for your website.
                 </p>
-                <div className="space-y-3 sm:space-y-4">
+                <div className="space-y-3 !text-sm !font-normal sm:space-y-4">
                   {[
                     { value: 'plain', label: 'Plain', example: '?p=123' },
                     { value: 'day-name', label: 'Day and name', example: '2025/07/08/sample-post/' },
@@ -90,23 +90,37 @@ export default function PermalinkSettings() {
               </section>
               {/* Optional Settings */}
               <section className="mb-8 md:mb-10">
-                <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-gray-800">Optional</h2>
+                <h2 className="text-base !text-lg font-semibold mb-2 sm:mb-3 text-gray-800">Optional</h2>
                 <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-5">
                   You may enter custom structures for your category and tag URLs here.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                  <InputField
-                    id="category_base"
-                    label="Category base"
-                    value={categoryBase}
-                    onChange={setCategoryBase}
-                  />
-                  <InputField
-                    id="tag_base"
-                    label="Tag base"
-                    value={tagBase}
-                    onChange={setTagBase}
-                  />
+                <div className="grid grid-cols-1 gap-3 sm:gap-4">
+                  <div className="flex items-start mb-6">
+                    <label htmlFor="category-base" className="w-56 font-semibold pr-5 pt-2">Category base</label>
+                    <div className="flex-1">
+                      <input
+                        id="category-base"
+                        name="categoryBase"
+                        type="text"
+                        className="w-full max-w-md p-2 bg-white border border-[#8c8f94] rounded"
+                        value={categoryBase}
+                        onChange={e => setCategoryBase(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-start mb-6">
+                    <label htmlFor="tag-base" className="w-56 font-semibold pr-5 pt-2">Tag base</label>
+                    <div className="flex-1">
+                      <input
+                        id="tag-base"
+                        name="tagBase"
+                        type="text"
+                        className="w-full max-w-md p-2 bg-white border border-[#8c8f94] rounded"
+                        value={tagBase}
+                        onChange={e => setTagBase(e.target.value)}
+                      />
+                    </div>
+                  </div>
                 </div>
               </section>
               <div className="mt-4 sm:mt-6">

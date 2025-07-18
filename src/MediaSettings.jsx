@@ -33,46 +33,55 @@ export default function MediaSettings() {
   return (
     <div>
       <Header />
-      <main className="flex flex-col mx-auto bg-gray-100 min-h-screen p-0">
+      <main className="flex flex-col lg:ms-46 bg-gray-100 min-h-screen p-0">
         <div className='flex  flex-row'>
-          <div className="w-46">
+          
             <Sidebar />
-          </div>
+          
           <div className="flex-1 mt-10 bg-white border border-[#e5e7eb] rounded shadow-sm p-8">
-        <h1 className="!text-3xl !font-semibold mb-6">Media Settings</h1>
+        <h1 className="!text-2xl !font-media mb-6">Media Settings</h1>
         <form onSubmit={handleSubmit}>
           {/* Image Sizes */}
-          <h2 className="text-xl font-semibold mb-2">Image Sizes</h2>
-          <p className="text-gray-600 mb-4">
+          <h2 className="!text-xl !font-normal mb-2">Image Sizes</h2>
+          <p className="text-gray-600  mb-4">
             Set maximum dimensions in pixels for inserting images.
           </p>
 
           {/* Thumbnail Size */}
-          <FieldGroup title="Thumbnail Size">
-            <SizeInput label="Width" id="thumbnailWidth" value={form.thumbnailWidth} onChange={handleChange} />
-            <SizeInput label="Height" id="thumbnailHeight" value={form.thumbnailHeight} onChange={handleChange} />
+          <div className="!text-xl " >Thumbnail Size
+            <div className='flex  gap-10'>
+              <div className="!text-sm">Width
+            <SizeInput id="thumbnailWidth" value={form.thumbnailWidth} onChange={handleChange} /></div>
+            <div className="!text-sm">Height<SizeInput  id="thumbnailHeight" value={form.thumbnailHeight} onChange={handleChange} >Height </SizeInput>
+               </div>  </div>
             <Checkbox
               label="Crop thumbnail to exact dimensions"
               id="thumbnailCrop"
               checked={form.thumbnailCrop}
               onChange={handleChange}
             />
-          </FieldGroup>
+          </div>
 
           {/* Medium Size */}
-          <FieldGroup title="Medium Size">
-            <SizeInput label="Max Width" id="mediumWidth" value={form.mediumWidth} onChange={handleChange} />
-            <SizeInput label="Max Height" id="mediumHeight" value={form.mediumHeight} onChange={handleChange} />
-          </FieldGroup>
+          <div className="!text-xl mt-4">Medium Size
+            <div className='flex  gap-10'>
+          <div className="!text-sm">Max Width
+            <SizeInput  id="mediumWidth" value={form.mediumWidth} onChange={handleChange} /></div>
+          <div className="!text-sm">Max Height
+            <SizeInput  id="mediumHeight" value={form.mediumHeight} onChange={handleChange} /></div>
+          </div></div>
 
           {/* Large Size */}
-          <FieldGroup title="Large Size">
-            <SizeInput label="Max Width" id="largeWidth" value={form.largeWidth} onChange={handleChange} />
-            <SizeInput label="Max Height" id="largeHeight" value={form.largeHeight} onChange={handleChange} />
-          </FieldGroup>
-
+           <div className="!text-xl mt-4">Large Size
+            <div className='flex  gap-10'>
+          <div className="!text-sm">Max Width
+            <SizeInput  id="mediumWidth" value={form.mediumWidth} onChange={handleChange} /></div>
+          <div className="!text-sm">Max Height
+            <SizeInput  id="mediumHeight" value={form.mediumHeight} onChange={handleChange} /></div>
+          </div></div>
           {/* Upload Settings */}
-          <h2 className="text-xl font-semibold mb-3">Uploading Files</h2>
+          <div className="mt-8">
+          <h2 className="!text-xl font-normal mb-3">Uploading Files</h2>
 
           <TextInput
             label="Store uploads in this folder"
@@ -110,6 +119,7 @@ export default function MediaSettings() {
               Save Changes
             </button>
           </div>
+          </div>
         </form>
           </div>
         </div>
@@ -145,7 +155,7 @@ const SizeInput = ({ label, id, value, onChange }) => (
 
 const TextInput = ({ label, id, placeholder, value, onChange, hint }) => (
   <div className="mb-4">
-    <label htmlFor={id} className="block font-medium text-gray-700 mb-1">
+    <label htmlFor={id} className="block font-medium  text-gray-700 mb-1">
       {label}
     </label>
     <input
@@ -161,7 +171,7 @@ const TextInput = ({ label, id, placeholder, value, onChange, hint }) => (
 );
 
 const Checkbox = ({ label, id, checked, onChange }) => (
-  <label className="inline-flex items-center mt-3">
+  <label className="inline-flex text-xs items-center mt-3">
     <input
       type="checkbox"
       id={id}

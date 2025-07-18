@@ -32,7 +32,7 @@ export default function Dashbordupdated() {
   return (
     <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
       <Header />
-      <div className="flex flex-1 w-full max-w-7xl ms-46 mt-10 py-8 px-4 gap-6">
+      <div className="flex flex-1 w-full max-w-7xl lg:ms-46 mt-10 py-8 px-4 gap-6">
         <Sidebar />
         <main className="flex-1 min-w-0">
           <h1 className="!text-2xl !font-normal text-gray-900 mb-2">WordPress Updates</h1>

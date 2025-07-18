@@ -38,7 +38,7 @@ const Alluser = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Header />
-        <main className="p-6 flex-1 ms-46 mt-10 max-w-8xl">
+        <main className="p-6 flex-1 lg:ms-46 mt-10 max-w-8xl">
           {/* Top bar: Users title, Add User button, and search */}
           <div className="flex flex-wrap items-center justify-between mb-2">
             <div className="flex items-center gap-4">

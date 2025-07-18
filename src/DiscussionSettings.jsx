@@ -6,11 +6,11 @@ export default function DiscussionSettings() {
   return (
     <div>
       <Header />
-      <main className="flex flex-col mx-auto bg-gray-100 min-h-screen p-0">
+      <main className="flex flex-col lg:ms-46 bg-gray-100 min-h-screen p-0">
         <div className='flex flex-row'>
-          <div className="w-46">
+          
             <Sidebar />
-          </div>
+          
           <div className="flex-1 mt-10 bg-gray-100 border border-[#e5e7eb] rounded shadow-sm p-8">
             <h1 className="!text-3xl !font-semibold mb-6">Discussion Settings</h1>
 

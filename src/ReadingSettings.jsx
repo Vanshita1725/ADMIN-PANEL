@@ -6,13 +6,13 @@ export default function ReadingSettings() {
   return (
     <div>
     <Header />     
-    <main className="flex flex-col bg-gray-100 min-h-screen p-10">
+    <main className="flex flex-col lg:ml-46 bg-gray-100 min-h-screen p-10">
       <div className='flex flex-row'>
-        <div className="w-46">
+        
           <Sidebar />
-        </div>
+        
           <div className='w-full bg-gray-100 pt-8'>
-            <h1 className="!text-3xl !font-semibold mb-4 md:mb-6 text-gray-800 leading-tight">
+            <h1 className="!text-2xl !font-media mb-4 md:mb-6 text-gray-800 leading-tight">
               Reading Settings
             </h1>
 

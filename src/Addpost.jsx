@@ -38,7 +38,7 @@ export default function Addpost() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <div className="flex max-w-7xl ms-46 py-8 gap-6 px-4 mt-10 justify-between">
+      <div className="flex max-w-7xl lg:ms-46 py-8 gap-6 px-4 mt-10 justify-between">
         <Sidebar />
         {/* Main Content */}
         <div className="flex flex-col w-full gap-2 ">
