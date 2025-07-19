@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 
-export default function MediaNew() {
+export default function NewMedia() {
   const [files, setFiles] = useState([]);
   const [dragActive, setDragActive] = useState(false);
   const fileInputRef = useRef();
@@ -65,7 +65,7 @@ export default function MediaNew() {
               onSubmit={e => e.preventDefault()}
             >
               <div
-                className={`w-full flex flex-col items-center justify-center bg-gray-100 rounded-lg transition-colors duration-200 ${dragActive ? "border-blue-500 bg-blue-50" : "border-gray-300 bg-gray-50"} py-16 mb-4`}
+                className={`w-full flex flex-col items-center justify-center rounded-lg transition-colors duration-200 py-16 mb-4 ${dragActive ? "border-blue-500 bg-blue-50" : "border-gray-300 bg-gray-50"}`}
                 style={{ minHeight: 180 }}
                 onClick={() => fileInputRef.current.click()}
               >
