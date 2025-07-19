@@ -49,11 +49,11 @@ const Comment = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex-1 bg-gray-100">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div className=" ">
         <Header />
-        <main className="p-6 max-w-8xl mt-5 lg:ms-46 flex-1">
+        <main className="p-4 md:max-w-8xl  mt-5 lg:ms-46 flex flex-col gap-4">
           {/* Page Title and item count */}
           <div className="flex justify-between items-center mb-2">
             <h1 className="!text-2xl  !font-normal">Comments</h1>
@@ -61,7 +61,7 @@ const Comment = () => {
           </div>
 
           {/* Status Filter Bar */}
-          <div className="flex flex-wrap items-center gap-2 text-sm mb-4">
+          <div className="!flex flex-wrap md:gap-2 text-sm mb-4">
             {statusFilters.map((f, i) => (
               <span key={f.label} className={f.active ? 'font-semibold !no-underline text-blue-700' : 'text-gray-700'}>
                 {i !== 0 && <span className="mx-1 text-gray-400">|</span>}
@@ -73,8 +73,8 @@ const Comment = () => {
           </div>
 
           {/* Filter Row */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap md:flex-row md:items-center md:justify-between gap-2 mb-2">
+            <div className="flex flex-wrap items-center md:gap-2">
               <select
                 className="border border-gray-300 rounded px-2 py-1 text-sm"
                 value={bulkAction}
@@ -112,18 +112,18 @@ const Comment = () => {
           </div>
 
           {/* Table */}
-          <div className="bg-white border border-gray-200 rounded shadow-sm overflow-x-auto">
-            <table className="min-w-full text-sm">
+          <div className="bg-white  border-1 border-gray-300 rounded shadow-sm overflow-x-auto">
+            <table className=" overflow-x-auto text-sm border-separate border-spacing-0">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="p-2 text-left w-8">
+                  <th className="p-2 text-left ">
                     <input
                       type="checkbox"
                       checked={selected.length === mockComments.length}
                       onChange={handleSelectAll}
                     />
                   </th>
-                  <th className="p-2 text-left w-56 cursor-pointer select-none">
+                  <th className="p-2 text-left  cursor-pointer select-none">
                     <span className="flex items-center gap-1">Author <span className="text-gray-400">&#8597;</span></span>
                   </th>
                   <th className="p-2 text-left cursor-pointer select-none">
@@ -179,18 +179,33 @@ const Comment = () => {
                       </tr>
                     ))}
                     {/* Empty row for spacing, as in WP */}
-                    <tr>
-                      <td className="p-2 align-top border-t border-gray-200">
-                        <input type="checkbox" disabled className="opacity-0" />
-                      </td>
-                      <td className="p-2 align-top border-t border-gray-200 text-gray-700">Author</td>
-                      <td className="p-2 align-top border-t border-gray-200 text-gray-700">Comment</td>
-                      <td className="p-2 align-top border-t border-gray-200 text-gray-700">In response to</td>
-                      <td className="p-2 align-top border-t border-gray-200 text-gray-700">Submitted on</td>
-                    </tr>
+                    
                   </>
                 )}
               </tbody>
+               <thead className="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th className="p-2 text-left w-8">
+                    <input
+                      type="checkbox"
+                      checked={selected.length === mockComments.length}
+                      onChange={handleSelectAll}
+                    />
+                  </th>
+                  <th className="p-2 text-left w-56 cursor-pointer select-none">
+                    <span className="flex items-center gap-1">Author <span className="text-gray-400">&#8597;</span></span>
+                  </th>
+                  <th className="p-2 text-left cursor-pointer select-none">
+                    <span className="flex items-center gap-1">Comment <span className="text-gray-400">&#8597;</span></span>
+                  </th>
+                  <th className="p-2 text-left w-64 cursor-pointer select-none">
+                    <span className="flex items-center gap-1">In response to <span className="text-gray-400">&#8597;</span></span>
+                  </th>
+                  <th className="p-2 text-left w-56 cursor-pointer select-none">
+                    <span className="flex items-center gap-1">Submitted on <span className="text-gray-400">&#8597;</span></span>
+                  </th>
+                </tr>
+              </thead>
             </table>
           </div>
 

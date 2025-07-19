@@ -52,7 +52,7 @@ export default function MediaNew() {
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1  overflow-y-auto p-0">
-          <div className="max-w-8xl ms-46 mt-10 py-8 px-4">
+          <div className="max-w-8xl lg:ms-46 mt-10 py-8 px-4">
             <h1 className="!text-2xl   !font-normal mb-6">Upload New Media</h1>
             {/* Help/overview */}
             

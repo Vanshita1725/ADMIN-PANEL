@@ -43,7 +43,7 @@ const GeneralSettings = () => {
             <Sidebar />
         
           <div className="flex-1 mt-10 bg-gray-100 border border-[#e5e7eb] rounded shadow-sm p-8">
-            <h1 className="!text-3xl !font-semibold text-[#1d2327] mb-8">General Settings</h1>
+            <h1 className="!text-2xl !font-normal text-[#1d2327] mb-8">General Settings</h1>
             <form onSubmit={handleSubmit}>
               {/* Site Title */}
               <div className="flex items-start mb-6">
@@ -392,7 +392,7 @@ const GeneralSettings = () => {
                 <div className="flex-1">
                   <button
                     type="submit"
-                    className="!bg-blue-500 hover:bg-[#005a87] text-white px-6 py-2 rounded font-semibold text-lg"
+                    className="!bg-blue-500 hover:bg-[#005a87] text-white px-2 py-2  font-normal text-sm"
                   >
                     Save Changes
                   </button>

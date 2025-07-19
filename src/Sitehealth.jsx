@@ -232,11 +232,13 @@ export default function SiteHealth() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
+    <div className="min-h-screen bg-[#f6f7f7]  flex-col">
       <Header />
-      <div className="flex flex-1 w-full max-w-8xl mx-auto py-2  gap-6">
-        <Sidebar />
-        <main className="flex flex-col mt-7 w-full  items-center lg:ml-46">
+      <div className="flex flex-col md:flex-row flex-1 w-full max-w-8xl mx-auto py-2 gap-6">
+        <div className="w-full md:w-[260px] mb-6 md:mb-0 flex-shrink-0">
+          <Sidebar />
+        </div>
+        <main className="flex flex-col mt-7 w-full items-center lg:ml-46">
           <div className="bg-white flex w-full border-b border-gray-200 flex flex-col items-center">
             <h1 className="!text-2xl font-medium text-gray-900 pt-3 mb-6 mt-2">Site Health</h1>
             <div className="flex flex-col bg-white items-center  mb-8">
@@ -671,7 +673,7 @@ export default function SiteHealth() {
                 {/* 1. Wordpress Section (collapsible) */}
                 <div className="border-1 mt-10 border-gray-200">
                   <div>
-                    <div className="bg-white  rounded w-full">
+                    <div className="bg-white  rounded ">
                       <div className="px-6 py-3 border-b border-gray-200 font-semibold text-lg flex items-center justify-between">
                         <span>Wordpress</span>
                         <button
@@ -747,16 +749,18 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {themeInfoOpen && (
-                        <table className=" m-3  !text-sm border border-gray-300">
-                          <tbody>
-                            {Object.entries(activeThemeInfo).map(([key, value], idx) => (
-                              <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
-                                <td className="px-6 py-2 text-gray-900">{value}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="m-3 !text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {Object.entries(activeThemeInfo).map(([key, value], idx) => (
+                                <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
+                                  <td className="px-6 py-2 text-gray-900">{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -779,23 +783,25 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {inactiveThemesOpen && (
-                        <table className=" m-3 text-sm border border-gray-300">
-                          <tbody>
-                            {inactiveThemes.map((theme, idx) => (
-                              <tr key={theme.name} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{theme.name}</td>
-                                <td className="px-6 py-2 text-gray-900">{theme.details}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="m-3 text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {inactiveThemes.map((theme, idx) => (
+                                <tr key={theme.name} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{theme.name}</td>
+                                  <td className="px-6 py-2 text-gray-900">{theme.details}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
 
                   {/* 5. Active Plugins Section */}
                   <div >
-                    <div className="bg-white rounded w-full">
+                    <div className="bg-white rounded ">
                       <div className="px-6 py-3 border-b border-gray-200 font-semibold text-lg flex items-center justify-between">
                         <span>Active Plugins</span>
                         <button
@@ -810,16 +816,18 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {activePluginsOpen && (
-                        <table className=" m-3 text-sm border border-gray-300">
-                          <tbody>
-                            {activePlugins.map((plugin, idx) => (
-                              <tr key={plugin.name} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{plugin.name}</td>
-                                <td className="px-6 py-2 text-gray-900" dangerouslySetInnerHTML={{ __html: plugin.details }} />
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="m-3 text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {activePlugins.map((plugin, idx) => (
+                                <tr key={plugin.name} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{plugin.name}</td>
+                                  <td className="px-6 py-2 text-gray-900" dangerouslySetInnerHTML={{ __html: plugin.details }} />
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -841,16 +849,18 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {inactivePluginsOpen && (
-                        <table className=" m-3 text-sm border border-gray-300">
-                          <tbody>
-                            {inactivePlugins.map((plugin, idx) => (
-                              <tr key={plugin.name} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-full">{plugin.name}</td>
-                                <td className="px-6 py-2 text-gray-900" dangerouslySetInnerHTML={{ __html: plugin.details }} />
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="m-3 text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {inactivePlugins.map((plugin, idx) => (
+                                <tr key={plugin.name} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-full">{plugin.name}</td>
+                                  <td className="px-6 py-2 text-gray-900" dangerouslySetInnerHTML={{ __html: plugin.details }} />
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -872,16 +882,18 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {mediaHandlingOpen && (
-                        <table className=" w-full m-3 text-sm border border-gray-300">
-                          <tbody>
-                            {Object.entries(mediaHandling).map(([key, value], idx) => (
-                              <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
-                                <td className="px-6 py-2 w-1/2 text-gray-900">{value}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="w-full m-3 text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {Object.entries(mediaHandling).map(([key, value], idx) => (
+                                <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
+                                  <td className="px-6 py-2 w-1/2 text-gray-900">{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -903,16 +915,18 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {serverInfoOpen && (
-                        <table className=" m-3 text-sm border border-gray-300">
-                          <tbody>
-                            {Object.entries(serverInfo).map(([key, value], idx) => (
-                              <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
-                                <td className="px-6 py-2 text-gray-900">{value}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="m-3 text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {Object.entries(serverInfo).map(([key, value], idx) => (
+                                <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
+                                  <td className="px-6 py-2 text-gray-900">{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -933,16 +947,18 @@ export default function SiteHealth() {
                         </button>
                       </div>
                       {databaseInfoOpen && (
-                        <table className=" m-3 text-sm border border-gray-300">
-                          <tbody>
-                            {Object.entries(databaseInfo).map(([key, value], idx) => (
-                              <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                <td className="px-6 py-2 font-medium text-gray-700 w-full">{key}</td>
-                                <td className="px-6 py-2 text-gray-900">{value}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        <div className="overflow-x-auto">
+                          <table className="m-3 text-sm border border-gray-300 min-w-[350px]">
+                            <tbody>
+                              {Object.entries(databaseInfo).map(([key, value], idx) => (
+                                <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                  <td className="px-6 py-2 font-medium text-gray-700 w-full">{key}</td>
+                                  <td className="px-6 py-2 text-gray-900">{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -968,16 +984,18 @@ export default function SiteHealth() {
                           <div className="px-6 py-3 m-3 text-gray-700 text-sm border-b border-gray-200">
                             These settings alter where and how parts of WordPress are loaded.
                           </div>
-                          <table className=" text-sm border border-gray-300">
-                            <tbody>
-                              {Object.entries(wpConstants).map(([key, value], idx) => (
-                                <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
-                                  <td className="px-6 py-2 text-gray-900">{value}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
+                          <div className="overflow-x-auto">
+                            <table className="text-sm border border-gray-300 min-w-[350px]">
+                              <tbody>
+                                {Object.entries(wpConstants).map(([key, value], idx) => (
+                                  <tr key={key} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                    <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{key}</td>
+                                    <td className="px-6 py-2 text-gray-900">{value}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </>
                       )}
                     </div>
@@ -1005,16 +1023,18 @@ export default function SiteHealth() {
                           <div className="px-6 py-3 m-3 text-gray-700 text-sm border-b border-gray-200">
                             Shows whether WordPress is able to write to the directories it needs access to.
                           </div>
-                          <table className=" text-sm border border-gray-300">
-                            <tbody>
-                              {fsPermissions.map((row, idx) => (
-                                <tr key={row.dir} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                                  <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{row.dir}</td>
-                                  <td className="px-6 py-2 text-gray-900">{row.status}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
+                          <div className="overflow-x-auto">
+                            <table className="text-sm border border-gray-300 min-w-[350px]">
+                              <tbody>
+                                {fsPermissions.map((row, idx) => (
+                                  <tr key={row.dir} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                    <td className="px-6 py-2 font-medium text-gray-700 w-1/2">{row.dir}</td>
+                                    <td className="px-6 py-2 text-gray-900">{row.status}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </>
                       )}
                     </div>

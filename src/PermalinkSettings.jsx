@@ -30,7 +30,7 @@ export default function PermalinkSettings() {
             <Sidebar />
           
           <div className="flex-1 mt-10 bg-gray-200 border border-[#e5e7eb] rounded shadow-sm p-8">
-            <h1 className="!text-3xl !font-normal mb-4 text-gray-800">Permalink Settings</h1>
+            <h1 className="!text-2xl !font-normal mb-4 text-gray-800">Permalink Settings</h1>
             <p className="text-xs sm:text-sm text-gray-600 mb-6">
               WordPress offers you the ability to create a custom URL structure for your permalinks and archives. Custom URL structures can improve the aesthetics, usability, and forward-compatibility of your links.{' '}
               <a href="#" className="text-blue-600">A number of tags are available</a>.
@@ -126,7 +126,7 @@ export default function PermalinkSettings() {
               <div className="mt-4 sm:mt-6">
                 <button
                   type="submit"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-2 rounded text-xs sm:text-sm"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-2  ! font-normaltext-xs sm:text-sm"
                 >
                   Save Changes
                 </button>

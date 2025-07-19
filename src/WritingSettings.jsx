@@ -18,12 +18,12 @@ export default function WritingSettings() {
             <Sidebar />
           </div>
           <div className="flex-1 mt-10 bg-gray-100 border border-[#e5e7eb] rounded shadow-sm p-8">
-        <h1 className="!text-3xl !font-semibold mb-8">Writing Settings</h1>
+        <h1 className="!text-2xl !font-normal mb-8">Writing Settings</h1>
 
         <form className="space-y-6">
           {/* Default Post Category */}
           <div className="flex items-center space-x-6">
-            <label htmlFor="default_category" className="w-56 font-medium">Default Post Category</label>
+            <label htmlFor="default_category" className="w-56 !text-sm font-normal">Default Post Category</label>
             <select id="default_category" name="default_category" className="w-64 border rounded px-3 py-2">
               <option>Uncategorized</option>
               <option>News</option>
@@ -33,7 +33,7 @@ export default function WritingSettings() {
 
           {/* Default Post Format */}
           <div className="flex items-center space-x-6">
-            <label htmlFor="default_post_format" className="w-56 font-medium">Default Post Format</label>
+            <label htmlFor="default_post_format" className="w-56 !text-sm font-normal">Default Post Format</label>
             <select id="default_post_format" name="default_post_format" className="w-64 border rounded px-3 py-2">
               <option value="standard">Standard</option>
               <option value="gallery" selected>Gallery</option>
@@ -44,7 +44,7 @@ export default function WritingSettings() {
 
           {/* Default Editor */}
           <div className="flex items-start space-x-6">
-            <p className="w-56 font-medium">Default editor for all users</p>
+            <p className="w-56 !text-sm font-normal">Default editor for all users</p>
             <div className="space-y-2">
               <label className="flex items-center space-x-2">
                 <input type="radio" name="default_editor" value="classic" defaultChecked className="accent-blue-600" />
@@ -59,7 +59,7 @@ export default function WritingSettings() {
 
           {/* Allow Switching Editor */}
           <div className="flex items-start space-x-6">
-            <p className="w-56 font-medium">Allow users to switch editors</p>
+            <p className="w-56 !text-sm font-normal">Allow users to switch editors</p>
             <div className="space-y-2">
               <label className="flex items-center space-x-2">
                 <input type="radio" name="allow_switch" value="yes" className="accent-blue-600" />
@@ -74,7 +74,7 @@ export default function WritingSettings() {
 
           {/* Post via Email */}
           <div className="mt-10">
-            <h2 className="text-xl font-semibold mb-2">Post via email</h2>
+            <h2 className="!text-xl !font-normal mb-2">Post via email</h2>
             <p className="text-sm text-gray-600 mb-4">
               To post to WordPress by email, you must set up a secret email account with POP3 access.
               Any mail received at this address will be posted, so it’s a good idea to keep this address very secret.
@@ -86,7 +86,7 @@ export default function WritingSettings() {
 
             {/* Mail Server + Port */}
             <div className="flex items-center space-x-4 mb-4">
-              <label htmlFor="mailserver_url" className="w-56 font-medium">Mail Server</label>
+              <label htmlFor="mailserver_url" className="w-56 font-normal !text-sm">Mail Server</label>
               <input type="text" id="mailserver_url" name="mailserver_url" className="w-full max-w-md border rounded px-3 py-2" defaultValue="mail.example.com" />
               <span className="font-medium">Port</span>
               <input type="text" id="mailserver_port" name="mailserver_port" className="w-20 border rounded px-2 py-2" defaultValue="110" />
@@ -94,13 +94,13 @@ export default function WritingSettings() {
 
             {/* Login */}
             <div className="flex items-center space-x-4 mb-4">
-              <label htmlFor="mailserver_login" className="w-56 font-medium">Login Name</label>
+              <label htmlFor="mailserver_login" className="w-56 font-normal !text-sm">Login Name</label>
               <input type="text" id="mailserver_login" name="mailserver_login" className="w-full max-w-md border rounded px-3 py-2" defaultValue="login@example.com" />
             </div>
 
             {/* Password */}
             <div className="flex items-center space-x-4 mb-4 relative">
-              <label htmlFor="mailserver_pass" className="w-56 font-medium">Password</label>
+              <label htmlFor="mailserver_pass" className="w-56 font-normal !text-sm">Password</label>
               <input
                 type={showPassword ? "text" : "password"}
                 id="mailserver_pass"
@@ -118,7 +118,7 @@ export default function WritingSettings() {
 
             {/* Mail Category */}
             <div className="flex items-center space-x-6">
-              <label htmlFor="default_email_category" className="w-56 font-medium">Default Mail Category</label>
+              <label htmlFor="default_email_category" className="w-56 font-normal !text-sm">Default Mail Category</label>
               <select id="default_email_category" name="default_email_category" className="w-64 border rounded px-3 py-2">
                 <option>Uncategorized</option>
                 <option>News</option>
@@ -128,7 +128,7 @@ export default function WritingSettings() {
 
           {/* Update Services */}
           <div className="mt-10">
-            <h2 className="text-xl font-semibold mb-2">Update Services</h2>
+            <h2 className="!text-xl font-normal mb-2">Update Services</h2>
             <p className="text-sm text-gray-600 mb-2">
               When you publish a new post, WordPress automatically notifies the following site update services.
               For more about this, see the <a href="#" className="text-blue-600 underline">Update Services</a> documentation article.
@@ -144,7 +144,7 @@ export default function WritingSettings() {
 
           {/* Submit Button */}
           <div className="pt-6">
-            <button type="submit" className="!bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow">
+            <button type="submit" className="!bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 !text-sm font-normal shadow">
               Save Changes
             </button>
           </div>

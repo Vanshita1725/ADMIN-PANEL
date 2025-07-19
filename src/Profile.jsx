@@ -37,19 +37,19 @@ export default function Profile() {
   const [profilePicPreview, setProfilePicPreview] = useState("");
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className=" min-h-screen bg-gray-100">
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 overflow-y-auto p-0">
-          <div className="max-w-7xl mt-8 lg:ms-46 py-10 px-4">
+          <div className="max-w-7xl mt-8 lg:ms-46 py-10 px-2 sm:px-4">
             <h1 className="!text-2xl !font-normal mb-8">Profile</h1>
-            <div className=" rounded-xl mt-6">
+            <div className="rounded-xl mt-6">
               <h2 className="!text-lg !font-normal mb-6">Personal Options</h2>
               <div className="space-y-8">
                 {/* Syntax Highlighting */}
-                <div className="flex">
-                  <div className="w-45 !text-sm font-medium text-gray-700">Syntax Highlighting</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 !text-sm font-medium text-gray-700 mb-2 sm:mb-0">Syntax Highlighting</div>
                   <div className="flex gap-2 items-center">
                     <input
                       id="syntaxHighlight"
@@ -62,13 +62,13 @@ export default function Profile() {
                   </div>
                 </div>
                 {/* Admin Color Scheme */}
-                <div className="flex items-start">
-                  <div className="w-64 pr-6 font-medium text-gray-700 pt-2">Admin Color Scheme</div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-start">
+                  <div className="w-64 pr-6 font-medium text-gray-700 pt-2 mb-2 sm:mb-0">Admin Color Scheme</div>
+                  <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 w-full">
                     {colorSchemes.map((scheme) => (
                       <label
                         key={scheme.value}
-                        className={`flex flex-col items-start cursor-pointer  transition  px-4 py-3 min-w-[250px]  ${colorScheme === scheme.value ? "border-gray-300 bg-gray-200" : " hover:border-gray-300"}`}
+                        className={`flex flex-col items-start cursor-pointer transition px-4 py-3 min-w-[180px] sm:min-w-[220px] md:min-w-[250px] ${colorScheme === scheme.value ? "border-gray-300 bg-gray-200" : " hover:border-gray-300"}`}
                         style={{ boxShadow: colorScheme === scheme.value ? "0 2px 8px 0 rgba(0,0,0,0.04)" : undefined }}
                       >
                         <div className="flex items-center mb-2">
@@ -96,9 +96,9 @@ export default function Profile() {
                   </div>
                 </div>
                 {/* Keyboard Shortcuts */}
-                <div className="flex items-center">
-                  <div className="w-45  pr-6 font-medium text-gray-700">Keyboard Shortcuts</div>
-                  <div className="flex gap-2 items-center">
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 pr-6 font-medium text-gray-700 mb-2 sm:mb-0">Keyboard Shortcuts</div>
+                  <div className="flex gap-2 items-center flex-wrap">
                     <input
                       id="keyboardShortcuts"
                       type="checkbox"
@@ -111,8 +111,8 @@ export default function Profile() {
                   </div>
                 </div>
                 {/* Toolbar */}
-                <div className="flex items-center">
-                  <div className="w-45 pr-6 font-medium text-gray-700">Toolbar</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 pr-6 font-medium text-gray-700 mb-2 sm:mb-0">Toolbar</div>
                   <div className="flex gap-2 items-center">
                     <input
                       id="toolbar"
@@ -127,13 +127,10 @@ export default function Profile() {
               </div>
 
               {/* Language */}
-              <div className="flex items-center mt-12 mb-8">
-                <div className="w-45  pr-6 font-medium text-gray-700 flex items-center">
-                  Language
-                  
-                </div>
+              <div className="flex flex-col sm:flex-row sm:items-center mt-12 mb-8">
+                <div className="w-45 pr-6 font-medium text-gray-700 flex items-center mb-2 sm:mb-0">Language</div>
                 <select
-                  className="w-70 border border-gray-300 rounded px-2 py-1"
+                  className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1"
                   value={language}
                   onChange={e => setLanguage(e.target.value)}
                 >
@@ -146,47 +143,47 @@ export default function Profile() {
               {/* Name Section */}
               <h1 className="!text-xl font-medium mt-10 mb-4">Name</h1>
               <div className="space-y-6 mb-8">
-                <div className="flex items-center">
-                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">Username</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 mb-2 sm:mb-0">Username</div>
                   <input
                     type="text"
-                    className="w-70 border border-gray-300 rounded px-2 py-1 bg-gray-100 text-gray-700"
+                    className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1 bg-gray-100 text-gray-700"
                     value={username}
                     disabled
                   />
-                  <span className="ml-4 text-gray-500">Usernames cannot be changed.</span>
+                  <span className="ml-0 sm:ml-4 text-gray-500 mt-2 sm:mt-0">Usernames cannot be changed.</span>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">First Name</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 mb-2 sm:mb-0">First Name</div>
                   <input
                     type="text"
-                    className="w-70 border border-gray-300 rounded px-2 py-1"
+                    className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1"
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
                   />
                 </div>
-                <div className="flex items-center">
-                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">Last Name</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 mb-2 sm:mb-0">Last Name</div>
                   <input
                     type="text"
-                    className="w-70 border border-gray-300 rounded px-2 py-1"
+                    className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1"
                     value={lastName}
                     onChange={e => setLastName(e.target.value)}
                   />
                 </div>
-                <div className="flex items-center">
-                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700">Nickname (required)</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 mb-2 sm:mb-0">Nickname (required)</div>
                   <input
                     type="text"
-                    className="w-70 border border-gray-300 rounded px-2 py-1"
+                    className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1"
                     value={nickname}
                     onChange={e => setNickname(e.target.value)}
                   />
                 </div>
-                <div className="flex items-center">
-                  <div className="w-46 pr-6 font-medium !text-sm text-gray-700">Display name publicly as</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-46 pr-6 font-medium !text-sm text-gray-700 mb-2 sm:mb-0">Display name publicly as</div>
                   <select
-                    className="w-[320px] border border-gray-300 rounded px-2 py-1"
+                    className="w-full sm:w-[320px] border border-gray-300 rounded px-2 py-1"
                     value={displayName}
                     onChange={e => setDisplayName(e.target.value)}
                   >
@@ -199,12 +196,12 @@ export default function Profile() {
               {/* Contact Info Section */}
               <h1 className="!text-xl font-medium mt-10 mb-4">Contact Info</h1>
               <div className="space-y-6 mb-8">
-                <div className="flex items-start">
-                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 pt-2">Email (required)</div>
+                <div className="flex flex-col sm:flex-row sm:items-start">
+                  <div className="w-45 pr-6 font-medium !text-sm text-gray-700 pt-2 mb-2 sm:mb-0">Email (required)</div>
                   <div className="flex-1">
                     <input
                       type="email"
-                      className="w-70 border border-gray-300 rounded px-2 py-1"
+                      className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1"
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                     />
@@ -213,11 +210,11 @@ export default function Profile() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700">Website</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 mb-2 sm:mb-0">Website</div>
                   <input
                     type="url"
-                    className="w-70 border border-gray-300 rounded px-2 py-1"
+                    className="w-full sm:w-70 border border-gray-300 rounded px-2 py-1"
                     value={website}
                     onChange={e => setWebsite(e.target.value)}
                   />
@@ -227,11 +224,11 @@ export default function Profile() {
               {/* About Yourself Section */}
               <h1 className="!text-xl font-medium mt-10 mb-4">About Yourself</h1>
               <div className="space-y-6 mb-8">
-                <div className="flex items-start">
-                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2">Biographical Info</div>
+                <div className="flex flex-col sm:flex-row sm:items-start">
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2 mb-2 sm:mb-0">Biographical Info</div>
                   <div className="flex-1">
                     <textarea
-                      className="w-[600px] border border-gray-300 rounded px-3 py-2 min-h-[120px]"
+                      className="w-full sm:w-[600px] border border-gray-300 rounded px-3 py-2 min-h-[120px]"
                       value={bio}
                       onChange={e => setBio(e.target.value)}
                     />
@@ -240,15 +237,15 @@ export default function Profile() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2">Profile Picture</div>
+                <div className="flex flex-col sm:flex-row sm:items-start">
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2 mb-2 sm:mb-0">Profile Picture</div>
                   <div className="flex flex-col items-start">
                     <label htmlFor="profile-picture-upload" className="block cursor-pointer">
-                      <div className="w-[110px] h-[110px] bg-gray-400 mb-2 flex items-end justify-center" style={{borderRadius:0}}>
+                      <div className="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] bg-gray-400 mb-2 flex items-end justify-center" style={{borderRadius:0}}>
                         {profilePicPreview ? (
-                          <img src={profilePicPreview} alt="Profile Preview" className="object-contain w-[80px] h-[80px]" />
+                          <img src={profilePicPreview} alt="Profile Preview" className="object-contain w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]" />
                         ) : (
-                          <i className="fa-solid fa-user text-white text-[80px]" style={{lineHeight:'1'}}></i>
+                          <i className="fa-solid fa-user text-white text-[70px] sm:text-[80px]" style={{lineHeight:'1'}}></i>
                         )}
                         <input
                           id="profile-picture-upload"
@@ -274,17 +271,17 @@ export default function Profile() {
               {/* Account Management Section */}
               <h2 className="!text-xl font-semibold mt-10 mb-4">Account Management</h2>
               <div className="space-y-6 mb-8">
-                <div className="flex items-center">
-                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700">New Password</div>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 mb-2 sm:mb-0">New Password</div>
                   <button
                     type="button"
-                    className="border-1 bg-white  border-blue-500 text-blue-700 px-2 py-1 !text-xs rounded font-medium text-base hover:bg-blue-50 transition"
+                    className="border-1 bg-white border-blue-500 text-blue-700 px-2 py-1 !text-xs rounded font-medium text-base hover:bg-blue-50 transition"
                   >
                     Set New Password
                   </button>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2">Sessions</div>
+                <div className="flex flex-col sm:flex-row sm:items-start">
+                  <div className="w-45 !text-sm pr-6 font-medium text-gray-700 pt-2 mb-2 sm:mb-0">Sessions</div>
                   <div className="flex flex-col">
                     <button type="button" className="border-1 border-gray-500 w-45 !text-xs text-gray-400 bg-gray-50 px-2 py-2 rounded hover:bg-blue-50 font-medium mb-1">Log Out Everywhere Else</button>
                     <span className="text-gray-600 !text-sm mt-1 block">

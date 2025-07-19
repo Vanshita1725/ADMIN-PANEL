@@ -60,7 +60,7 @@ export default function Categories() {
   return (
     <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
       <Header />
-      <div className="lg:flex max-w-7xl lg:ms-46 py-3 gap-6 px-4 mt-10 justify-between">
+      <div className="lg:flex max-w-8xl lg:ms-46 py-3 gap-6 px-4 mt-10 justify-between">
         <Sidebar />
         <div className="flex flex-col w-full ga p-2">
           <h1 className="!text-3xl !font-normal mb-20 text-gray-900">Categories</h1>

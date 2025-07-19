@@ -10,21 +10,21 @@ export default function Library() {
   const [mediaDate, setMediaDate] = useState("all");
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen bg-gray-100 md:flex-row">
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Header />
-        <main className="flex-1 max-w-8xl overflow-y-auto p-0">
-          <div className="max-w-7xl mt-10 lg:ms-46 py-8 px-4">
+        <main className="flex-1 w-full p-0">
+          <div className=" max-w-7xl lg:ms-46 mt-6 md:mt-10  py-4 md:py-8 px-2 sm:px-4">
             {/* Top title bar */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4">
               <h1 className="!text-2xl !text-gray-500 !font-normal">Media Library</h1>
-              <button className="border !border-blue-500 text-blue-700 bg-white p-2 rounded !text-xs !font-medium hover:bg-blue-50">Add Media File</button>
+              <button className="border !border-blue-500 text-blue-700 bg-white px-3 py-1 rounded !text-xs !font-medium hover:bg-blue-50">Add Media File</button>
             </div>
             {/* Toolbar */}
-            <div className="flex items-center bg-white border rounded px-4 py-3 mb-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center bg-white border rounded px-2 sm:px-4 py-2 sm:py-3 mb-6 sm:mb-8 shadow-sm gap-2 md:gap-0">
               {/* View mode icons */}
-              <div className="flex items-center gap-2 mr-4">
+              <div className="flex items-center gap-2 mb-2 md:mb-0 md:mr-4">
                 <button
                   className={`p-1 border rounded ${viewMode === "list" ? "border-blue-500 bg-blue-50" : "border-gray-300 bg-white"}`}
                   onClick={() => setViewMode("list")}
@@ -41,7 +41,7 @@ export default function Library() {
                 </button>
               </div>
               {/* Filters */}
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
               <select
                 className="border  border-gray-300 rounded px-2 py-1 mr-2"
                 value={mediaType}
@@ -62,23 +62,25 @@ export default function Library() {
                 <option value="2024-05">May 2024</option>
               </select>
              
-              <button className="border border-blue-500 text-blue-700 bg-white px-3 py-1 rounded font-medium hover:bg-blue-50 mr-4">Bulk select</button>
+              <button className="border border-blue-500 text-blue-700 bg-white px-3 py-1 rounded font-medium hover:bg-blue-50 md:mr-4">Bulk select</button>
               </div>
               {/* Spacer */}
               <div className="flex-1" />
               {/* Search */}
-              <label htmlFor="media-search" className="mr-2 text-gray-700">Search media</label>
-              <input
-                id="media-search"
-                type="text"
-                className="border border-gray-300 rounded px-3 py-1 w-72"
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-              />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full sm:w-auto">
+                <label htmlFor="media-search" className="text-gray-700">Search media</label>
+                <input
+                  id="media-search"
+                  type="text"
+                  className="border border-gray-300 rounded px-3 py-1 w-full sm:w-72"
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                />
+              </div>
             </div>
             
             {/* No media items found */}
-            <div className="flex flex-col items-center justify-center h-[350px] text-gray-500 text-xl font-normal select-none">
+            <div className="flex flex-col items-center justify-center h-[200px] sm:h-[300px] md:h-[350px] text-gray-500 text-lg sm:text-xl font-normal select-none">
               No media items found.
             </div>
           </div>

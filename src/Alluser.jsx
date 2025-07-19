@@ -34,9 +34,9 @@ const Alluser = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="bg-gray-100">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div >
         <Header />
         <main className="p-6 flex-1 lg:ms-46 mt-10 max-w-8xl">
           {/* Top bar: Users title, Add User button, and search */}

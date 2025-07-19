@@ -4,7 +4,7 @@ import Header from "./Header";
 import { Link } from "react-router";
 
 const postFormats = [
-  { label: "Standard", icon: <i className="fa-solid fa-thumbtack"></i>},
+  { label: "Standard", icon: <i className="fa-solid fa-thumbtack"></i> },
   { label: "Aside", icon: <i className="fa-solid fa-file"></i> },
   { label: "Audio", icon: <i className="fa-solid fa-music"></i> },
   { label: "Chat", icon: <i className="fa-solid fa-comments"></i> },
@@ -36,28 +36,30 @@ export default function Addpost() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      <Header />
-      <div className="flex max-w-7xl lg:ms-46 py-8 gap-6 px-4 mt-10 justify-between">
-        <Sidebar />
-        {/* Main Content */}
-        <div className="flex flex-col w-full gap-2 ">
+    <div className="flex flex-col min-h-screen bg-gray-100 md:flex-row">
+      <Sidebar />
+      <div className="flex-1 flex flex-col">
+        <Header />
+        <main className="flex-1 w-full p-0">
+          <div className="w-full max-w-7xl lg:ms-46 mt-6 md:mt-10 py-4 md:py-8 px-2 sm:px-4 flex flex-col lg:flex-row gap-6">
+            {/* Main Content */}
+            <div className="flex flex-col w-full gap-2 ">
           <h1 className="!text-2xl font-Normal mb-0 ">Add Post</h1>
-          <input           className=" border rounded px-2 py-1 text-xl mb-4 bg-white focus:outline-none focus:ring"
+          <input className=" border rounded px-2 py-1 text-xl mb-4 bg-white focus:outline-none focus:ring"
             placeholder="Add title"
             value={title}
             onChange={e => setTitle(e.target.value)}></input>
-          
+
           {/* Editor area */}
           <div className="bg-white  mb-4">
             {/* Toolbar row */}
             <div className="flex bg-gray-100 justify-between  items-center   border-gray-200">
               <button className="flex justify-between mb-1  items-center gap-2 border   border-blue-600 rounded mb- px-3 py-1.5 bg-white !text-sm font-Normal text-blue-800 hover:bg-blue-50">
-                              <i className="fa-solid fa-photo-film"></i>
+                <i className="fa-solid fa-photo-film"></i>
 
                 Add Media
               </button>
-              
+
               <div className="flex justify-between -mb-1 bg-gray-100 gap-3 text-sm ">
                 <button
                   className={`px-3 py-2 border-gray-100 border  !bg-gray-50 ${tab === "Visual" ? "bg-gray-100 font-semibold text-blue-700" : "text-gray-700"}`}
@@ -74,7 +76,7 @@ export default function Addpost() {
               </div>
             </div>
             {/* Editor toolbar */}
-            <div className="flex items-center px-4 py-2 boder-gray-50  gap-1 border bg-gray-50">
+            <div className="flex flex-wrap items-center px-2 sm:px-4 py-2 gap-1 border bg-gray-50">
               <select className="border rounded px-2 py-1 text-sm mr-2">
                 <option>Paragraph</option>
                 <option>Heading 1</option>
@@ -90,7 +92,7 @@ export default function Addpost() {
               </button>
               {/* Bulleted List */}
               <button className="px-2 py-1 text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 rounded" title="Bulleted list">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="6" cy="7" r="1.5"/><circle cx="6" cy="12" r="1.5"/><circle cx="6" cy="17" r="1.5"/><line x1="10" y1="7" x2="20" y2="7" /><line x1="10" y1="12" x2="20" y2="12" /><line x1="10" y1="17" x2="20" y2="17" /></svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="6" cy="7" r="1.5" /><circle cx="6" cy="12" r="1.5" /><circle cx="6" cy="17" r="1.5" /><line x1="10" y1="7" x2="20" y2="7" /><line x1="10" y1="12" x2="20" y2="12" /><line x1="10" y1="17" x2="20" y2="17" /></svg>
               </button>
               {/* Numbered List */}
               <button className="px-2 py-1 text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 rounded" title="Numbered list">
@@ -125,7 +127,7 @@ export default function Addpost() {
             <div className="px-4  min-h-[300px]">
               {tab === "Visual" ? (
                 <textarea
-                  className="w-full min-h-[200px] border-0 outline-none  text-base bg-white"
+                  className="w-full h-90 border-0 outline-none  text-base bg-white"
                   placeholder=""
                   value={content}
                   onChange={e => setContent(e.target.value)}
@@ -137,31 +139,31 @@ export default function Addpost() {
             {/* Word count */}
             <div className="px-4 py-2 border border-gray-200 text-xs text-gray-600 bg-gray-50">Word count: {content.trim() ? content.trim().split(/\s+/).length : 0}</div>
           </div>
-        </div> 
-        {/* Sidebar widgets (right column) */}
-        <div className="w-[340px] pt-10 flex flex-col gap-4">
+            </div>
+            {/* Sidebar widgets (right column) */}
+            <div className="w-full max-w-xs lg:w-[340px] pt-6 lg:pt-10 flex flex-col gap-4 mx-auto lg:mx-0">
           {/* Publish box */}
           <div className="bg-white border rounded shadow-sm">
             <div className="flex items-center justify-between px-4 py-2 border border-gray-200 bg-gray-50">
               <span className="font-semibold">Publish</span>
             </div>
             <div className=" flex flex-col gap-2">
-                <div  className="px-4 py-3">
-              <div className="flex gap-2">
-                <button className="border !border-blue-600 text-blue-700 rounded px-3 py-1 !text-sm bg-gray-100  hover:bg-gray-50">Save Draft</button>
-                <button className="border !border-blue-500 text-blue-700 bg-gray-100 px-3 py-1 rounded text-sm hover:bg-blue-50">Preview</button>
-              </div>
-              <div className="text-sm text-gray-700 mt-2 space-y-2">
-                <div className="flex items-center gap-2">
-<i className="fa-solid text-gray-300 fa-map-pin"></i>                  <span className="font-normal text-sm">Status:</span> <span className="font-semibold text-gray-900">Draft</span> <button className="text-blue-700 hover:underline  border-b !border-blue-600  py-0.5 text-xs ml-1">Edit</button>
+              <div className="px-4 py-3">
+                <div className="flex gap-2">
+                  <button className="border !border-blue-600 text-blue-700 rounded px-3 py-1 !text-sm bg-gray-100  hover:bg-gray-50">Save Draft</button>
+                  <button className="border !border-blue-500 text-blue-700 bg-gray-100 px-3 py-1 rounded text-sm hover:bg-blue-50">Preview</button>
                 </div>
-                <div className="flex items-center gap-2">
-<i className="fa-solid text-gray-300 fa-eye"></i>                  <span className="font-normal text-sm">Visibility:</span> <span className="font-semibold text-gray-900">Public</span> <button className="text-blue-700 hover:underline  border-b !border-blue-600  py-0.5 text-xs ml-1">Edit</button>
+                <div className="text-sm text-gray-700 mt-2 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <i className="fa-solid text-gray-300 fa-map-pin"></i>                  <span className="font-normal text-sm">Status:</span> <span className="font-semibold text-gray-900">Draft</span> <button className="text-blue-700 hover:underline  border-b !border-blue-600  py-0.5 text-xs ml-1">Edit</button>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <i className="fa-solid text-gray-300 fa-eye"></i>                  <span className="font-normal text-sm">Visibility:</span> <span className="font-semibold text-gray-900">Public</span> <button className="text-blue-700 hover:underline  border-b !border-blue-600  py-0.5 text-xs ml-1">Edit</button>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <i className="fa-solid text-gray-300 fa-calendar-days"></i>                  <span className="font-normal text-sm">Publish</span> <span className="font-semibold text-gray-900">immediately</span> <button className="text-blue-700 hover:underline  border-b !border-blue-600  py-0.5 text-xs ml-1">Edit</button>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-<i className="fa-solid text-gray-300 fa-calendar-days"></i>                  <span className="font-normal text-sm">Publish</span> <span className="font-semibold text-gray-900">immediately</span> <button className="text-blue-700 hover:underline  border-b !border-blue-600  py-0.5 text-xs ml-1">Edit</button>
-                </div>
-              </div>
               </div>
               <div className="flex items-center border p-2  justify-between  border-gray-200 bg-gray-50">
                 <button className="text-red-400 underline font-semibold bg-white !text-sm border-none px-0 py-0">Move to Trash</button>
@@ -212,7 +214,7 @@ export default function Addpost() {
               <div className="bg-white border-b-1  border-l-1  border-gray-300 rounded p- pt-0 pe-0">
                 <div className="flex text-sm  ">
                   <button className="px-2 py-1 font-semibold border-r-1 border-t-1 border-gray-300  text-blue-700 bg-white rounded-tl rounded-tr focus:outline-none" >All Categories</button>
-                  <button className="ps-2 pr-30 py-1 !border-b-1 !border-gray-200 text-blue-700 bg-white ml-2 focus:outline-none" style={{border: 'none', borderBottom: 'none'}}>Most Used</button>
+                  <button className="ps-2 pr-30 py-1 !border-b-1 !border-gray-200 text-blue-700 bg-white ml-2 focus:outline-none" style={{ border: 'none', borderBottom: 'none' }}>Most Used</button>
                 </div>
                 <div className="flex border-r-1 py-2 ps-2 border-gray-300 items-center gap-2 ">
                   <input
@@ -254,7 +256,7 @@ export default function Addpost() {
               <div className="text-sm text-gray-600 mb-1">Separate tags with commas</div>
               <button
                 className="text-blue-700 border-blue-700 rounded px-2 py-1 text-xs font-normal bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-2"
-                style={{textDecoration: 'underline'}}
+                style={{ textDecoration: 'underline' }}
                 type="button"
                 onClick={() => setShowMostUsedTags(v => !v)}
               >
@@ -282,60 +284,62 @@ export default function Addpost() {
             </div>
             <div className="px-4 py-3">
               <button
-                className="text-blue-700 hover:underline text-sm bg-white underline  rounded px-2 py-2 font-semibold hover:bg-blue-50"
+                className="text-blue-700 hover:underline !text-xs bg-white underline  rounded px-2 py-2 font-normal hover:bg-blue-50"
                 type="button"
                 onClick={() => setShowFeaturedModal(true)}
               >
                 Set featured image
               </button>
-      {/* Featured Image Modal */}
-      {showFeaturedModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="bg-white rounded shadow-lg w-[110vw] max-w-5xl h-[80vh] flex flex-col relative">
-            <div className="flex items-center justify-between border-b px-8 py-4">
-              <span className="text-2xl font-semibold">Featured image</span>
-              <button className="text-gray-500 text-2xl hover:text-gray-700" onClick={() => setShowFeaturedModal(false)}>&times;</button>
-            </div>
-            <div className="flex border-b px-8 pt-4 gap-2">
-              <button
-                className={`px-4 py-2 border-b-2 ${featuredTab === 'upload' ? 'border-blue-600 text-blue-700 font-semibold' : 'border-transparent text-gray-700'} bg-white focus:outline-none`}
-                onClick={() => setFeaturedTab('upload')}
-              >
-                Upload files
-              </button>
-              <button
-                className={`px-4 py-2 border-b-2 ${featuredTab === 'library' ? 'border-blue-600 text-blue-700 font-semibold' : 'border-transparent text-gray-700'} bg-white focus:outline-none`}
-                onClick={() => setFeaturedTab('library')}
-              >
-                Media Library
-              </button>
-            </div>
-            <div className="flex-1 flex flex-col items-center justify-center px-8">
-              {featuredTab === 'upload' ? (
-                <div className="flex flex-col items-center justify-center w-full h-full">
-                  <div className="text-xl font-normal mb-2 mt-8">Drop files to upload</div>
-                  <div className="mb-2 text-gray-500">or</div>
-                  <label className="inline-block">
-                    <input type="file" className="hidden" />
-                    <span className="inline-block border border-blue-500 text-blue-700 px-6 py-2 rounded cursor-pointer hover:bg-blue-50 text-lg">Select Files</span>
-                  </label>
-                  <div className="mt-4 text-gray-500 text-sm">Maximum upload file size: 40 MB.</div>
-                </div>
-              ) : (
-                <div className="flex flex-col items-center justify-center w-full h-full">
-                  <div className="text-gray-500 text-lg">Media Library is empty.</div>
+              {/* Featured Image Modal */}
+              {showFeaturedModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 px-2 sm:px-0">
+                  <div className="bg-white rounded shadow-lg w-full max-w-lg sm:max-w-2xl md:max-w-3xl lg:max-w-4xl h-[90vh] flex flex-col relative overflow-hidden">
+                    <div className="flex items-center justify-between border-b px-4 sm:px-8 py-4">
+                      <span className="text-xl sm:text-2xl font-semibold">Featured image</span>
+                      <button className="text-gray-500 text-2xl hover:text-gray-700" onClick={() => setShowFeaturedModal(false)}>&times;</button>
+                    </div>
+                    <div className="flex border-b px-4 sm:px-8 pt-4 gap-2 flex-wrap">
+                      <button
+                        className={`px-3 sm:px-4 py-2 border-b-2 ${featuredTab === 'upload' ? 'border-blue-600 text-blue-700 font-semibold' : 'border-transparent text-gray-700'} bg-white focus:outline-none`}
+                        onClick={() => setFeaturedTab('upload')}
+                      >
+                        Upload files
+                      </button>
+                      <button
+                        className={`px-3 sm:px-4 py-2 border-b-2 ${featuredTab === 'library' ? 'border-blue-600 text-blue-700 font-semibold' : 'border-transparent text-gray-700'} bg-white focus:outline-none`}
+                        onClick={() => setFeaturedTab('library')}
+                      >
+                        Media Library
+                      </button>
+                    </div>
+                    <div className="flex-1 flex flex-col items-center justify-center px-2 sm:px-8 overflow-y-auto">
+                      {featuredTab === 'upload' ? (
+                        <div className="flex flex-col items-center justify-center w-full h-full py-4">
+                          <div className="text-lg sm:text-xl font-normal mb-2 mt-4 sm:mt-8 text-center">Drop files to upload</div>
+                          <div className="mb-2 text-gray-500">or</div>
+                          <label className="inline-block">
+                            <input type="file" className="hidden" />
+                            <span className="inline-block border border-blue-500 text-blue-700 px-4 sm:px-6 py-2 rounded cursor-pointer hover:bg-blue-50 text-base sm:text-lg">Select Files</span>
+                          </label>
+                          <div className="mt-4 text-gray-500 text-xs sm:text-sm text-center">Maximum upload file size: 40 MB.</div>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center justify-center w-full h-full py-4">
+                          <div className="text-gray-500 text-base sm:text-lg text-center">Media Library is empty.</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="border-t px-4 sm:px-8 py-4 flex justify-end">
+                      <button className="bg-gray-200 text-gray-500 px-4 sm:px-6 py-2 rounded cursor-not-allowed" disabled>Set featured image</button>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
-            <div className="border-t px-8 py-4 flex justify-end">
-              <button className="bg-gray-200 text-gray-500 px-6 py-2 rounded cursor-not-allowed" disabled>Set featured image</button>
+          </div>
             </div>
           </div>
-        </div>
-      )}
-            </div>
-          </div>
-        </div>
+        </main>
       </div>
     </div>
   );

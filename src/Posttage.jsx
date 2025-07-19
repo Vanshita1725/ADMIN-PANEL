@@ -48,14 +48,17 @@ export default function Posttage() {
   return (
     <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
       <Header />
-      <div className="flex flex-1 w-full mt-10 max-w-7xl lg:ms-48 py-8 px-4 gap-6">
-        <Sidebar />
+      <div className="flex flex-col md:flex-row mt-6 max-w-8xl lg:ml-48 py-8 px-2">
+        {/* Sidebar */}
+        <div className="w-full md:w-auto mb-4 md:mb-0">
+          <Sidebar />
+        </div>
         <main className="flex-1 min-w-0">
           <h1 className="!text-2xl !font-normal pb-3 text-gray-900">Tags</h1>
-          <div className="grid grid-cols-1 md:grid-cols-[420px_1fr] gap-6 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-4 items-start">
             {/* Add Tag Form */}
             <form
-              className="rounded p-2 pt-2 flex flex-col gap-2"
+              className=" p-2 pt-2  flex flex-col gap-2"
               onSubmit={handleAdd}
             >
               <h2 className="!text-lg !font-normal mb-2 text-gray-900">Add Tag</h2>
@@ -111,10 +114,10 @@ export default function Posttage() {
               </button>
             </form>
             {/* Tags Table and Info */}
-            <div>
-              <div className="overflow-x-auto mt-10 border border-gray-200 rounded bg-white">
-                <table className="min-w-full text-sm">
-                  <thead className="bg-white border  border-gray-300">
+            
+            <div className="mt-10 border border-gray-200 rounded bg-white overflow-x-auto">
+                <table className="min-w-full border-1 !border-gray-400 text-sm whitespace-nowrap">
+                  <thead className="bg-white border-1  !border-gray-400">
                     <tr>
                       <th className="px-3 py-2 text-left w-8">
                         <input
@@ -161,7 +164,7 @@ export default function Posttage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody className="border-1  !border-gray-400">
                     {sorted.length === 0 ? (
                       <tr>
                         <td colSpan={5} className="text-center bg-gray-200 text-gray-500 py-2">
@@ -186,7 +189,7 @@ export default function Posttage() {
                       ))
                     }
                   </tbody>
-                    <thead className="bg-white border border-gray-300">
+                    <thead className="bg-white border-1  !border-gray-400">
                     <tr>
                       <th className="px-3 py-2 text-left w-8">
                         <input
@@ -242,7 +245,7 @@ export default function Posttage() {
                 </a>
                 .
               </div>
-            </div>
+            
           </div>
         </main>
       </div>

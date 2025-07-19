@@ -2,124 +2,224 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
 
-const responsiveStyles = `
-@media (max-width: 900px) {
-  .epd-container { padding: 24px 8px !important; }
-  .epd-main { padding: 0 !important; }
-  .epd-form-row { flex-direction: column !important; align-items: stretch !important; }
-  .epd-label { width: 100% !important; margin-bottom: 8px !important; }
-  .epd-input { width: 100% !important; }
-  .epd-table-wrap { overflow-x: auto !important; }
-}
-`;
-
 const ErasePersonalData = () => {
-  const [email, setEmail] = useState('');
-  const [sendEmail, setSendEmail] = useState(true);
+    const [email, setEmail] = useState('');
+    const [sendEmail, setSendEmail] = useState(true);
+    const [categories] = useState([]); // You can replace with real data
+    const [sort, setSort] = useState({ key: 'name', dir: 'asc' });
+    const [selected, setSelected] = useState([]);
 
-  return (
-    <div>
-      <style>{responsiveStyles}</style>
-      <Header />
-      <div style={{ display: 'flex' }}>
-        <Sidebar />
-        <main className="epd-main" style={{ flex: 1, background: '#f6f7f7', minHeight: '100vh', padding: '32px 32px 32px 32px' }}>
-          <div className="epd-container" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 16px' }}>
-            <h1 style={{ fontSize: 32, fontWeight: 600, marginBottom: 0, marginTop: 0, letterSpacing: -1 }}>Erase Personal Data</h1>
-            <div style={{ color: '#666', fontSize: 16, marginBottom: 32, marginTop: 8 }}>
-              This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given user.
+    // Sorting logic (dummy, as no real data)
+    const sorted = categories && Array.isArray(categories) ? categories.slice().sort((a, b) => {
+        if (!a[sort.key] || !b[sort.key]) return 0;
+        if (a[sort.key] < b[sort.key]) return sort.dir === 'asc' ? -1 : 1;
+        if (a[sort.key] > b[sort.key]) return sort.dir === 'asc' ? 1 : -1;
+        return 0;
+    }) : [];
+
+    const handleSort = (key) => {
+        setSort((prev) => ({
+            key,
+            dir: prev.key === key ? (prev.dir === 'asc' ? 'desc' : 'asc') : 'asc',
+        }));
+    };
+
+    const handleSelectAll = () => {
+        if (selected.length === sorted.length && sorted.length > 0) {
+            setSelected([]);
+        } else {
+            setSelected(sorted.map((cat) => cat.id));
+        }
+    };
+
+    const handleSelectRow = (id) => {
+        setSelected((prev) =>
+            prev.includes(id) ? prev.filter((sid) => sid !== id) : [...prev, id]
+        );
+    };
+
+    return (
+        <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
+            <Header />
+            <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto py-8 px-2 sm:px-4 gap-6">
+
+                <Sidebar />
+
+                <main className="flex-1 min-w-0 w-full">
+                    <div className=" mt-10 w-full lg:ms-15 px-2 sm:px-4">
+                        <h1 className="!text-2xl !font-normal mb-0 mt-0 tracking-tight">Erase Personal Data</h1>
+                        <div className="text-gray-600 text-base mb-8 mt-2">This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given user.</div>
+                        <div className="mb-0 mt-0">
+                            <h2 className="!text-xl !font-normal mb-6">Add Data Erasure Request</h2>
+                            <form className="max-w-2xl mb-0">
+                                <div className="flex flex-col md:flex-row md:items-center gap-3 mb-4">
+                                    <label htmlFor="email" className="font-medium text-base md:w-56 w-full mb-2 md:mb-0">Username or email address</label>
+                                    <input
+                                        id="email"
+                                        type="text"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                        className="flex-1 border border-gray-300  px-3 py-1 text-base focus:outline-none  bg-white w-full md:w-auto"
+                                    />
+                                </div>
+                                <div className="flex flex-col md:flex-row md:items-center gap-2 mb-6">
+                                    <label htmlFor="sendEmail" className="font-medium text-base md:w-56 w-full mb-2 md:mb-0">Confirmation email</label>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            id="sendEmail"
+                                            type="checkbox"
+                                            checked={sendEmail}
+                                            onChange={e => setSendEmail(e.target.checked)}
+                                            className="accent-[#2271b1] w-4 h-4"
+                                        />
+                                        <label htmlFor="sendEmail" className="text-base text-gray-800 cursor-pointer select-none">Send personal data erasure confirmation email.</label>
+                                    </div>
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="bg-white text-[#2271b1] border-1 border-[#2271b1]  !font-medium !text-sm px-6 py-2 mt-2 hover:bg-blue-50 transition-colors cursor-pointer"
+                                    disabled
+                                >
+                                    Send Request
+                                </button>
+                            </form>
+                        </div>
+                        <hr className="my-8 border-t border-gray-200" />
+                        <div className="mt-0">
+                            <div className="font-medium text-base mb-2">All (0)</div>
+                            <div className="overflow-x-auto bg-white border border-gray-200 rounded">
+                                <table className="min-w-full border-1 !border-gray-400 text-sm whitespace-nowrap">
+                                    <thead className="bg-white border-1  !border-gray-400">
+                                        <tr>
+                                            <th className="px-3 py-2 text-left w-8">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selected.length === sorted.length && sorted.length > 0}
+                                                    onChange={handleSelectAll}
+                                                />
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("name")}
+                                            >
+                                                Name
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "name" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("description")}
+                                            >
+                                                Description
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "description" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("slug")}
+                                            >
+                                                Slug
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "slug" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("count")}
+                                            >
+                                                Count
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "count" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="border-1  !border-gray-400">
+                                        {sorted.length === 0 ? (
+                                            <tr>
+                                                <td colSpan={5} className="text-center bg-gray-200 text-gray-500 py-2">
+                                                    No categories found.
+                                                </td>
+                                            </tr>
+                                        ) :
+                                            sorted.map((cat) => (
+                                                <tr key={cat.id} className="bg-[#f6f7f7] border border-gray-300">
+                                                    <td className="px-3 py-2 text-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={selected.includes(cat.id)}
+                                                            onChange={() => handleSelectRow(cat.id)}
+                                                        />
+                                                    </td>
+                                                    <td className="px-3 py-2 font-semibold text-[#2271b1]">
+                                                        {cat.name}
+                                                    </td>
+                                                    <td className="px-3 py-2 text-gray-700">
+                                                        {cat.description ? cat.description : <span className="text-gray-400">—</span>}
+                                                    </td>
+                                                    <td className="px-3 py-2 text-gray-700">{cat.slug}</td>
+                                                    <td className="px-3 py-2 text-[#2271b1] font-semibold">{cat.count}</td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                    <thead className="bg-white border-1  !border-gray-400">
+                                        <tr>
+                                            <th className="px-3 py-2 text-left w-8">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selected.length === sorted.length && sorted.length > 0}
+                                                    onChange={handleSelectAll}
+                                                />
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("name")}
+                                            >
+                                                Name
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "name" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("description")}
+                                            >
+                                                Description
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "description" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("slug")}
+                                            >
+                                                Slug
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "slug" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                            <th
+                                                className="px-3 py-2 cursor-pointer select-none text-[#2271b1] font-semibold"
+                                                onClick={() => handleSort("count")}
+                                            >
+                                                Count
+                                                <span className="inline-block align-middle ml-1 text-xs text-gray-400">
+                                                    {sort.key === "count" ? (sort.dir === "asc" ? "▲" : "▼") : <span className="text-gray-400">▲</span>}
+                                                </span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </div>
-            <div style={{ marginBottom: 0, marginTop: 0 }}>
-              <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 24 }}>Add Data Erasure Request</h2>
-              <form style={{ maxWidth: 700, marginBottom: 0 }}>
-                <div className="epd-form-row" style={{ display: 'flex', alignItems: 'center', marginBottom: 18 }}>
-                  <label className="epd-label" htmlFor="email" style={{ fontWeight: 500, fontSize: 16, width: 220, marginRight: 16 }}>
-                    Username or email address
-                  </label>
-                  <input
-                    className="epd-input"
-                    id="email"
-                    type="text"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    style={{ flex: 1, padding: '8px 12px', fontSize: 15, border: '1px solid #ccc', borderRadius: 3 }}
-                  />
-                </div>
-                <div className="epd-form-row" style={{ display: 'flex', alignItems: 'center', marginBottom: 24 }}>
-                  <label className="epd-label" htmlFor="sendEmail" style={{ fontWeight: 500, fontSize: 16, width: 220, marginRight: 16 }}>
-                    Confirmation email
-                  </label>
-                  <input
-                    id="sendEmail"
-                    type="checkbox"
-                    checked={sendEmail}
-                    onChange={e => setSendEmail(e.target.checked)}
-                    style={{ marginRight: 8, width: 18, height: 18 }}
-                  />
-                  <label htmlFor="sendEmail" style={{ fontSize: 15, color: '#222', cursor: 'pointer', marginRight: 8 }}>
-                    Send personal data erasure confirmation email.
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  style={{
-                    background: '#fff',
-                    color: '#2271b1',
-                    border: '1px solid #2271b1',
-                    borderRadius: 3,
-                    fontWeight: 500,
-                    fontSize: 16,
-                    padding: '8px 24px',
-                    cursor: 'pointer',
-                    marginTop: 8
-                  }}
-                  disabled
-                >
-                  Send Request
-                </button>
-              </form>
-            </div>
-            <hr style={{ margin: '32px 0 18px 0', border: 'none', borderTop: '1px solid #e5e5e5' }} />
-            <div style={{ marginTop: 0 }}>
-              <div style={{ fontWeight: 500, fontSize: 16, marginBottom: 8 }}>All (0)</div>
-              <div className="epd-table-wrap" style={{ background: '#fff', border: '1px solid #e5e5e5', borderRadius: 4 }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 600 }}>
-                  <thead>
-                    <tr style={{ background: '#f6f7f7', borderBottom: '1px solid #e5e5e5' }}>
-                      <th style={{ width: 40, textAlign: 'center', padding: 10 }}>
-                        <input type="checkbox" disabled />
-                      </th>
-                      <th style={{ textAlign: 'left', padding: 10, fontWeight: 500 }}>Requester</th>
-                      <th style={{ textAlign: 'left', padding: 10, fontWeight: 500 }}>Status</th>
-                      <th style={{ textAlign: 'left', padding: 10, fontWeight: 500 }}>Next steps</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td style={{ textAlign: 'center', padding: 10 }}>
-                        <input type="checkbox" disabled />
-                      </td>
-                      <td style={{ padding: 10, color: '#2271b1', fontWeight: 500 }}>Requester</td>
-                      <td style={{ padding: 10, color: '#2271b1', fontWeight: 500 }}>Requested</td>
-                      <td style={{ padding: 10, color: '#888' }}>No items found.</td>
-                    </tr>
-                    <tr>
-                      <td style={{ textAlign: 'center', padding: 10 }}>
-                        <input type="checkbox" disabled />
-                      </td>
-                      <td style={{ padding: 10, color: '#2271b1', fontWeight: 500 }}>Requester</td>
-                      <td style={{ padding: 10, color: '#2271b1', fontWeight: 500 }}>Requested</td>
-                      <td style={{ padding: 10, color: '#888' }}>Next steps</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default ErasePersonalData;

@@ -176,12 +176,12 @@ const Sidebar = () => {
   const closeMobileSidebar = () => setIsMobileOpen(false);
 
   const handleMenuClick = (item, index) => {
-    if (item.dropdown) {
-      // Only set openDropdown if not already open
-      if (openDropdown !== index) {
-        setOpenDropdown(index);
+    if (item.dropdown && item.dropdown.length > 0) {
+      // Always open dropdown and navigate to first subitem
+      setOpenDropdown(index);
+      if (item.dropdown[0].to) {
+        navigate(item.dropdown[0].to);
       }
-      // If already open, do nothing (prevents direct close)
     } else if (item.to) {
       navigate(item.to);
       setOpenDropdown(null);
@@ -211,7 +211,7 @@ const Sidebar = () => {
         />
         {/* Sidebar */}
         <aside
-          className={`bg-[#23282d] text-white fixed top-0 left-0 h-full w-full max-w-xs shadow-lg transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`bg-[#23282d] text-white fixed top-10 left-0 h-full w-full max-w-xs shadow-lg transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
           style={{ overflowY: 'auto', scrollbarWidth: 'thin' }}
         >
           <button
@@ -273,7 +273,7 @@ const Sidebar = () => {
             <li key={item.label} className="nav-item text-sm flex flex-col gap-1 relative">
               <div
                 ref={el => tooltipRefs.current[idx] = el}
-                className={`flex items-center no-underline text-white gap-2 cursor-pointer py-2 px-2 hover:bg-[#32373c] rounded ${isCollapsed ? 'justify-center' : ''}`}
+                className={`flex items-center no-underline text-white gap-2 cursor-pointer py-2 px-2 hover:bg-[#2a6cafff]  ${isCollapsed ? 'justify-center' : ''}`}
                 onClick={() => handleMenuClick(item, idx)}
               >
                 <span>{item.icon}</span>
@@ -281,12 +281,12 @@ const Sidebar = () => {
               </div>
               {/* Dropdown below the item */}
               {!isCollapsed && openDropdown === idx && item.dropdown && (
-                <ul className="mt-1 mb-2">
+                <ul className="mt-1 p-0 mb-2">
                   {item.dropdown.map((subItem, subIdx) => (
                     <li key={subIdx}>
                       <Link
                         to={subItem.to}
-                        className="block py-1 text-sm !no-underline !text-white hover:bg-[#32373c] rounded px-2"
+                        className="block py-1 text-sm !no-underline bg-[#34383dff] !text-white hover:bg-[#2a6cafff]  px-2"
                       >
                         {subItem.label}
                       </Link>

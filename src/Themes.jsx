@@ -17,11 +17,11 @@ export default function Themes() {
     },
     {
       id: 2,
-     
+
       name: "Twenty Twenty-Four",
       screenshot: "https://wp-themes.com/wp-content/themes/twentytwentyfour/screenshot.png",
       active: false
- 
+
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ export default function Themes() {
       screenshot: "http://localhost/wordpress/wp-content/themes/twentytwentythree/screenshot.png?ver=1.6",
       active: false
     },
-    
+
   ];
   const [themes] = useState(mockThemes);
 
@@ -51,18 +51,18 @@ export default function Themes() {
                 <span className="ml-2 bg-gray-400 text-white !text-sm px-2.5 py-1 rounded-full font-semibold">{filteredThemes.length}</span>
                 <button className="border !border-blue-500 text-blue-500 !text-sm bg-white px-2 py-2 !rounded-sm font-medium hover:bg-blue-50 ml-4">Add Theme</button>
               </div>
-              
+
             </div>
             <div className="flex items-center gap-2 mb-2 flex-1 justify-end">
-                <label htmlFor="theme-search" className="text-gray-700 text-sm">Search installed themes</label>
-                <input
-                  id="theme-search"
-                  type="text"
-                  className="border border-gray-300 bg-white rounded px-3 py-1 w-80"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                />
-              </div>
+              <label htmlFor="theme-search" className="text-gray-700 text-sm">Search installed themes</label>
+              <input
+                id="theme-search"
+                type="text"
+                className="border border-gray-300 bg-white rounded px-3 py-1 w-80"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+            </div>
             {/* Themes grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
               {filteredThemes.map((theme) => (
@@ -92,7 +92,7 @@ export default function Themes() {
                           <div className="absolute w-full h-full bg-gray-100 opacity-90 flex items-center justify-center z-10 transition-all">
                             <span className="!text-White bg-gyay-600  text-lg items-center flex justify-center font-semibold px-6 py-2 rounded">Theme Details</span>
                           </div>
-                          <div className="absolute bottom-0  -right-40 w-full flex gap-2 px-4 py-2 z-20 bg-transparent">
+                          <div className="absolute bottom-0  -right-50 w-full flex gap-2 px-4 py-2 z-20 bg-transparent">
                             <button className="border !text-xs border-blue-500 text-blue-700 bg-white px-2 py-2 rounded-xl !font-medium hover:bg-blue-50">Activate</button>
                             <button className="bg-blue-600 !text-xs  text-white px-2 py-2 rounded-xl   !font-medium hover:bg-blue-700">Live Preview</button>
                           </div>

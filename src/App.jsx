@@ -28,8 +28,8 @@ import Tools from './Tools'
 import Import from './Import.JSX'
 import Export from './Export'
 import Sitehealth from './Sitehealth'
+import ExportPersonalData from './ExportPersonalData'
 import ErasePersonalData from './ErasePersonalData'
-import ExportPersonalData from './EportPersonalData'
 
 
 function App() {
@@ -64,8 +64,9 @@ function App() {
         <Route path="/Import" element={<Import />} />
         <Route path="/Export" element={<Export />} />
         <Route path="/Sitehealth" element={<Sitehealth />} />
+        <Route path="/ExportPersonalData" element={<ExportPersonalData />} />
         <Route path="/ErasePersonalData" element={<ErasePersonalData />} />
-        <Route path='/ExportPersonalData' element={<ExportPersonalData />} />
+      
         {/* Add more routes as needed */}
         </Routes>
     </div>

@@ -39,7 +39,7 @@ export default function MediaSettings() {
             <Sidebar />
           
           <div className="flex-1 mt-10 bg-white border border-[#e5e7eb] rounded shadow-sm p-8">
-        <h1 className="!text-2xl !font-media mb-6">Media Settings</h1>
+        <h1 className="!text-2xl !font-normal mb-6">Media Settings</h1>
         <form onSubmit={handleSubmit}>
           {/* Image Sizes */}
           <h2 className="!text-xl !font-normal mb-2">Image Sizes</h2>
@@ -114,7 +114,7 @@ export default function MediaSettings() {
           <div className="mt-6">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white px-6 py-2 font-normal !text-sm hover:bg-blue-700"
             >
               Save Changes
             </button>

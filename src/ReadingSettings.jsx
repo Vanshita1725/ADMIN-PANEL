@@ -6,7 +6,7 @@ export default function ReadingSettings() {
   return (
     <div>
     <Header />     
-    <main className="flex flex-col lg:ml-46 bg-gray-100 min-h-screen p-10">
+    <main className="flex flex-col lg:ml-42 bg-gray-100 min-h-screen p-10">
       <div className='flex flex-row'>
         
           <Sidebar />
@@ -170,7 +170,7 @@ export default function ReadingSettings() {
               <div>
                 <button
                   type="submit"
-                  className="text-sm md:text-base w-full md:w-auto px-4 md:px-6 py-2 !bg-blue-600 text-white rounded hover:bg-blue-700"
+                  className="!text-sm md:text-base w-full md:w-auto px-4 md:px-6 py-2 !bg-blue-600 text-white font-normal hover:bg-blue-700"
                 >
                   Save Changes
                 </button>

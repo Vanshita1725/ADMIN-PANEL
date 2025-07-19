@@ -21,19 +21,22 @@ export default function Allpost() {
 
   // For pixel-perfect spacing, use py-8 for top, px-4 for sides, and mb-4 for gaps
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
+    <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
+      {/* Sidebar */}
+      <div className="w-full lg:w-auto">
+        <Sidebar />
+      </div>
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 overflow-y-auto p-0">
-          <div className="max-w-txl mt-10 lg:ms-45 py-8 px-4">
+          <div className="max-w-txl mt-10 lg:ms-45 py-8 px-2 sm:px-4">
             {/* Top bar */}
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <h1 className="!text-2xl !font-normal mr-2">Posts</h1>
               <button className="border border-blue-500 text-blue-700 bg-white px-3 py-1 rounded hover:bg-blue-50 !text-xs">Add Post</button>
             </div>
             {/* Tabs */}
-            <div className="flex justify-between h-10  items-center mb-4">     
+            <div className="md:flex justify-between h-10  items-center mb-4">     
                       <div className="flex items-center  gap-4 text-sm">
               <span className=" font-semibold  border-blue-700 pb-1 cursor-pointer">All <span className="text-gray-600">(1)</span></span>
               <span className="text-blue-700  hover:underline border-l-2 border-gray-300 pl-2 cursor-pointer">Published <span className="text-gray-600">(1)</span></span>
@@ -71,7 +74,7 @@ export default function Allpost() {
             </div>
             {/* Table */}
             <div className="overflow-x-auto bg-white rounded shadow border mb-2">
-              <table className="min-w-full text-sm">
+              <table className="min-w-full text-sm whitespace-nowrap">
                 <thead className="bg-gray-50 border-1 border-b">
                   <tr>
                     <th className="px-3 py-2 w-8">

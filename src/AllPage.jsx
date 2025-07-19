@@ -141,7 +141,7 @@ const AllPage = () => {
           </form>
           </div>
         {/* Bulk Actions Top */}
-        <div className="flex items-center gap-2 mb-2">
+        <div className="flex flex-wrap items-center gap-2 mb-2">
           <select className="border border-gray-300 rounded px-2 py-1 text-sm bg-white">
             <option>Bulk actions</option>
             <option>Edit</option>
