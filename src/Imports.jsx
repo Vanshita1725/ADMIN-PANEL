@@ -33,7 +33,7 @@ const importers = [
   },
 ];
 
-export default function Import() {
+export default function Imports() {
   return (
     <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
       <Header />

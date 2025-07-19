@@ -91,7 +91,7 @@ const Sidebar = () => {
       icon: <i className="fa-solid fa-wrench"></i>, 
       dropdown: [
         { label: 'Available Tools', to: '/Tools ' },
-        { label: 'Import', to: '/Import' },
+        { label: 'Import', to: '/Imports' },
         { label: 'Export', to: '/Export' },
         { label: 'Site Health', to: '/Sitehealth' },
         { label: 'Export Personal Data', to: '/ExportPersonalData' },

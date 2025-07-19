@@ -22,14 +22,13 @@ import Categories from './Categories'
 import Posttage from './Posttage'
 import Dashbordupdated from './Dashbordupdeted'
 import Library from './Library'
-import MediaNew from './NewMedia'
 import Tools from './Tools'
-import Import from './Import.JSX'
 import Export from './Export'
 import Sitehealth from './Sitehealth'
 import ExportPersonalData from './ExportPersonalData'
 import ErasePersonalData from './ErasePersonalData'
 import NewMedia from './NewMedia'
+import Imports from './Imports.jsx'
 
 
 function App() {
@@ -60,7 +59,7 @@ function App() {
         <Route path="/Posttage" element={<Posttage />} />
         <Route path="/Dashbordupdated" element={<Dashbordupdated />} />
         <Route path="/Tools" element={<Tools />} />
-        <Route path="/Import" element={<Import />} />
+        <Route path="/Imports" element={<Imports />} />
         <Route path="/Export" element={<Export />} />
         <Route path="/Sitehealth" element={<Sitehealth />} />
         <Route path="/ExportPersonalData" element={<ExportPersonalData />} />
