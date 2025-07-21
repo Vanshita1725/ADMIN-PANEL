@@ -25,11 +25,11 @@ function Dashboard() {
                 <p className="text-white underline !text-lg">Learn more about the 6.8.1 version.</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 p-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  p-3">
                 {/* Block Patterns Card */}
                 <div className="p-3 flex flex-col sm:flex-row gap-4">
-                  <div className="p-2 w-16 h-13 bg-black flex items-center justify-center !text-white rounded-lg">
-                    <i className="fa-solid fa-pen"></i>
+                  <div className=" w-16 h-13 bg-black flex items-center justify-center !text-white rounded-lg">
+                    <i className="fa-solid fa-pen w-13 items-center !flex justify-center"></i>
                   </div>
                   <div className="flex flex-col">
                     <h2 className="!text-xl !font-normal mb-3 pe-2">Author rich content with blocks and patterns</h2>
@@ -63,8 +63,8 @@ function Dashboard() {
 
                 {/* Styles Card */}
                 <div className="p-3 flex flex-col sm:flex-row gap-4">
-                  <div className="p-2 w-16 h-13 bg-black flex items-center justify-center !text-white rounded-lg">
-                    <i className="fa-solid fa-circle-half-stroke"></i>
+                  <div className=" w-16 h-13 bg-black flex items-center justify-center !text-white rounded-lg">
+                    <i className="fa-solid fa-circle-half-stroke w-13 items-center !flex justify-center"></i>
                   </div>
                   <div className="flex flex-col">
                     <h2 className="!text-xl !font-normal mb-3 pe-4">Switch up your site's look & feel with Styles</h2>
