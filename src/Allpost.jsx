@@ -29,7 +29,7 @@ export default function Allpost() {
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 overflow-y-auto p-0">
-          <div className="max-w-txl mt-10 lg:ms-47 py-8 px-2 sm:px-4">
+          <div className="max-w-7xl mt-10 lg:ms-48 py-8 px-2 sm:px-4">
             {/* Top bar */}
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <h1 className="!text-2xl !font-normal mr-2">Posts</h1>
