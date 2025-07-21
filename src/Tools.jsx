@@ -4,9 +4,9 @@ import Header from "./Header";
 
 export default function Tools() {
   return (
-    <div className="min-h-screen bg-[#f6f7f7] flex flex-col">
+    <div className="min-h-screen bg-[#f6f7f7] flex-col">
       <Header />
-      <div className="flex flex-wrap md:flex-nowrap w-full max-w-7xl mt-10 lg:ms-46 py-8 px-2 sm:px-4  gap-6 overflow-x-hidden">
+      <div className="flex flex-wrap md:flex-nowrap max-w-7xl mt-10 lg:ms-48 py-8 px-2 sm:px-4  gap-6 overflow-x-hidden">
           <Sidebar />
         
         <main className="flex-1 min-w-0 w-full">
