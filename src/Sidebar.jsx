@@ -8,6 +8,7 @@ const Sidebar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const tooltipRefs = useRef([]);
+  const tooltipInstances = useRef([]); // Store tooltip instances
   const navigate = useNavigate();
   // Close sidebar on route change (mobile)
   useEffect(() => {
@@ -119,7 +120,7 @@ const Sidebar = () => {
     const style = document.createElement('style');
     style.innerHTML = `
       .tooltip-inner {
-        background-color: #23282d;
+        background-color:rgb(36, 42, 49);
         color: #f0f0f1;
        
         border-radius: 4px;
@@ -127,7 +128,7 @@ const Sidebar = () => {
         max-width: 300px;
       }
       .bs-tooltip-end .tooltip-arrow::before {
-        border-right-color: #23282d;
+        border-right-color:rgb(37, 46, 53);
       }
       .tooltip-list {
         display: flex;
@@ -144,7 +145,8 @@ const Sidebar = () => {
     `;
     document.head.appendChild(style);
 
-    tooltipRefs.current.forEach((el, idx) => {
+    // Initialize tooltips for hover only
+    tooltipInstances.current = tooltipRefs.current.map((el, idx) => {
       if (el) {
         const item = menuItems[idx];
         if (item.dropdown) {
@@ -155,14 +157,22 @@ const Sidebar = () => {
             </ul>
           `);
         }
-        new Tooltip(el, {
-          trigger: 'hover',
+        return new Tooltip(el, {
+          trigger: 'hover', // Only show on hover
           placement: 'right'
         });
       }
+      return null;
     });
 
     return () => {
+      // Dispose all tooltips safely
+      tooltipInstances.current.forEach(instance => {
+        if (instance && instance._element) {
+          instance.dispose();
+        }
+      });
+      tooltipInstances.current = [];
       document.head.removeChild(style);
     };
   }, []);
@@ -177,14 +187,14 @@ const Sidebar = () => {
 
   const handleMenuClick = (item, index) => {
     if (item.dropdown && item.dropdown.length > 0) {
-      // Always open dropdown and navigate to first subitem
-      setOpenDropdown(index);
+      // Toggle dropdown: open if not open, close if already open
+      setOpenDropdown(prev => (prev === index ? null : index));
       if (item.dropdown[0].to) {
         navigate(item.dropdown[0].to);
       }
     } else if (item.to) {
       navigate(item.to);
-      setOpenDropdown(null);
+      setOpenDropdown(null); // Always close dropdown when navigating to a non-dropdown item
     }
   };
 
@@ -301,7 +311,7 @@ const Sidebar = () => {
               className='bg-transparent p-0'
               onClick={toggleSidebar}
             >
-              <i className={`fa-solid fa-circle-chevron-${isCollapsed ? 'right' : 'left'}`}></i>
+              <i className={`fa-solid  fa-circle-chevron-${isCollapsed ? 'right' : 'left'}`}></i>
             </button>
             {!isCollapsed && <span>Collapse Menu</span>}
           </li>
