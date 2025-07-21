@@ -100,7 +100,7 @@ const AllPage = () => {
     <div className="wp-admin bg-[#f1f1f1] min-h-screen">
       <Header />
       <Sidebar />
-      <div className="lg:ml-48 pt-12 px-4 max-w-screen-2xl">
+      <div className="lg:ml-44 pt-12 px-4 max-w-screen-2xl">
         {/* Top Bar: Title, Add Page, Search */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
           <div className="flex items-center gap-2">

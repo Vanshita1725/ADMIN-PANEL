@@ -187,14 +187,17 @@ const Sidebar = () => {
 
   const handleMenuClick = (item, index) => {
     if (item.dropdown && item.dropdown.length > 0) {
-      // Toggle dropdown: open if not open, close if already open
-      setOpenDropdown(prev => (prev === index ? null : index));
-      if (item.dropdown[0].to) {
-        navigate(item.dropdown[0].to);
+      if (openDropdown === index) {
+        setOpenDropdown(null); // Close if already open
+      } else {
+        if (item.dropdown[0].to) {
+          navigate(item.dropdown[0].to);
+        }
+        setOpenDropdown(index); // Open dropdown after navigation
       }
     } else if (item.to) {
       navigate(item.to);
-      setOpenDropdown(null); // Always close dropdown when navigating to a non-dropdown item
+      setOpenDropdown(); // Close all dropdowns if a non-dropdown item is clicked
     }
   };
 
@@ -296,7 +299,7 @@ const Sidebar = () => {
                     <li key={subIdx}>
                       <Link
                         to={subItem.to}
-                        className="block py-1 text-sm !no-underline bg-[#34383dff] !text-white hover:bg-[#2a6cafff]  px-2"
+                        className="block py-1 text-sm !no-underline bg-[#34383dff] !text-white   px-2"
                       >
                         {subItem.label}
                       </Link>

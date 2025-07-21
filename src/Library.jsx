@@ -18,7 +18,7 @@ export default function Library() {
           <div className=" max-w-7xl lg:ms-46 mt-6 md:mt-10  py-4 md:py-8 px-2 sm:px-4">
             {/* Top title bar */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4">
-              <h1 className="!text-2xl !text-gray-500 !font-normal">Media Library</h1>
+              <h1 className="!text-2xl  !font-normal">Media Library</h1>
               <button className="border !border-blue-500 text-blue-700 bg-white px-3 py-1 rounded !text-xs !font-medium hover:bg-blue-50">Add Media File</button>
             </div>
             {/* Toolbar */}
