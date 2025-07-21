@@ -36,7 +36,7 @@ function Dashboard() {
                     <p className="text-gray-600 !text-sm mb-4">
                       Block patterns are pre-configured block layouts. Use them to get inspired or create new pages in a flash.
                     </p>
-                    <Link className="!text-blue-500 !text-sm !underline py-2">
+                    <Link className="!text-primary !text-sm !underline py-2">
                       Add a new page
                     </Link>
                   </div>
@@ -55,7 +55,7 @@ function Dashboard() {
                     <p className="text-gray-600 !text-sm mb-4">
                       Design everything on your site — from the header down to the footer, all using blocks and patterns.
                     </p>
-                    <Link className="!text-blue-500 !text-sm !underline py-2 mt-3">
+                    <Link className="!text-primary !text-sm !underline py-2 mt-3">
                       Open site editor
                     </Link>
                   </div>
@@ -71,7 +71,7 @@ function Dashboard() {
                     <p className="text-gray-600 text-sm mb-4">
                       Tweak your site, or give it a whole new look! Get creative — how about a new color palette or font?
                     </p>
-                    <Link className="!text-blue-500 !text-sm !underline py-3 ">
+                    <Link className="!text-primary !text-sm !underline py-3 ">
                       Edit styles
                     </Link>
                   </div>
@@ -91,20 +91,20 @@ function Dashboard() {
                       <div className="flex items-center">
                         <div className="gap-2 p-2 rounded-full flex flex-row items-center justify-center mr-3">
                           <i className="fa-solid fa-thumbtack !text-md !text-gray-400"></i>
-                          <p className="font-medium mb-2 !text-sm !font-normal !text-blue-500 flex items-center justify-center">1 Post</p>
+                          <p className="font-medium mb-2 !text-sm !font-normal !text-primary flex items-center justify-center">1 Post</p>
                         </div>
                       </div>
                       <div className="flex items-center sm:ps-10">
                         <div className="gap-2 rounded-full flex items-center justify-center mr-1">
                           <i className="fa-solid fa-copy !text-md !text-gray-400"></i>
-                          <p className="font-medium flex mb-2 !text-sm !font-normal !text-blue-500 items-center justify-center">1 Page</p>
+                          <p className="font-medium flex mb-2 !text-sm !font-normal !text-primary items-center justify-center">1 Page</p>
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center">
                       <div className="mb-2 gap-2 p-2 rounded-full flex items-center justify-center mr-3">
                         <i className="fa-solid fa-message !text-md !text-gray-400"></i>
-                        <p className="flex mb-2 !text-sm !font-normal !text-blue-500 items-center justify-center">1 Comment</p>
+                        <p className="flex mb-2 !text-sm !font-normal !text-primary items-center justify-center">1 Comment</p>
                       </div>
                     </div>
                   </div>
@@ -137,7 +137,7 @@ function Dashboard() {
                     <h3 className="!font-normal ps-2 !text-sm mb-2">Recently Published</h3>
                     <div className="text-sm flex flex-col sm:flex-row bg-gray-100 gap-2 sm:gap-20 space-y-1">
                       <p className="text-gray-600 mb-0 ps-2">Jul 8th, 11:19 am</p>
-                      <p className="!font-normal mb-0 text-blue-500">Hello world!</p>
+                      <p className="!font-normal mb-0 text-primary">Hello world!</p>
                     </div>
                   </div>
                   <div>
@@ -145,7 +145,7 @@ function Dashboard() {
                     <div className="!text-sm bg-gray-100 flex flex-col sm:flex-row items-center justify-center p-2 space-y-2">
                       <img src={img} className="h-15 w-15" alt="" />
                       <div>
-                        <p className="!font-normal !text-xs relative mb-1 sm:-right-10">From<span className="!text-blue-700"> A WordPress Commenter</span> on<span className="!text-blue-700"> Hello world!</span></p>
+                        <p className="!font-normal !text-xs relative mb-1 sm:-right-10">From<span className="!text-primary"> A WordPress Commenter</span> on<span className="!text-primary"> Hello world!</span></p>
                         <p className="text-gray-600 !text-xs w-80 pe-3 relative sm:-right-10">
                           Hi, this is a comment. To get started with moderating, editing, and deleting comments, please visit the Comments screen in...
                         </p>
@@ -153,12 +153,12 @@ function Dashboard() {
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-3 mt-4 p-3 text-sm">
-                    <a href="#" className="text-blue-800 !text-xs !no-underline hover:underline">All <span className="!text-gray-500 !no-underline">(1)</span></a>
-                    <a href="#" className="text-blue-800 !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Mine <span className="!text-gray-500 !no-underline">(0)</span></a>
-                    <a href="#" className="text-blue-800 !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Pending <span className="!text-gray-500 !no-underline">(0)</span></a>
-                    <a href="#" className="text-blue-800 !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Approved <span className="!text-gray-500 !no-underline">(1)</span></a>
-                    <a href="#" className="text-blue-800 !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Spam <span className="!text-gray-500 !no-underline">(0)</span></a>
-                    <a href="#" className="text-blue-800 !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Trash <span className="!text-gray-500 !no-underline">(0)</span></a>
+                    <a href="#" className="text-primary !text-xs !no-underline hover:underline">All <span className="!text-gray-500 !no-underline">(1)</span></a>
+                    <a href="#" className="text-primary !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Mine <span className="!text-gray-500 !no-underline">(0)</span></a>
+                    <a href="#" className="text-primary !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Pending <span className="!text-gray-500 !no-underline">(0)</span></a>
+                    <a href="#" className="text-primary !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Approved <span className="!text-gray-500 !no-underline">(1)</span></a>
+                    <a href="#" className="text-primary !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Spam <span className="!text-gray-500 !no-underline">(0)</span></a>
+                    <a href="#" className="text-primary !text-xs border-l-1 ps-1 border-gray-200 !no-underline hover:underline">Trash <span className="!text-gray-500 !no-underline">(0)</span></a>
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@ function Dashboard() {
                       <div className="p-2">
                         <button
                           type="submit"
-                          className="bg-blue-800 hover:bg-blue-700 text-white !text-xs px-2 py-2 !rounded-md"
+                          className="bg-primary hover:bg-primary text-white !text-xs px-2 py-2 !rounded-md"
                         >
                           Save Draft
                         </button>
@@ -201,7 +201,7 @@ function Dashboard() {
                     <div className="p-2">
                       <p className="text-xs flex gap-2 mb-2">Enter your closest city to find nearby events.
                         <button
-                          className="border-blue-700 text-blue-700 px-2 py-1 rounded flex items-center gap-1 ml-2 text-xs focus:outline-none focus:ring-2 focus:ring-blue-300"
+                          className="border-primary text-primary px-2 py-1 rounded flex items-center gap-1 ml-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary"
                           type="button"
                           onClick={() => setShowCityForm(true)}
                           tabIndex={0}
@@ -219,10 +219,10 @@ function Dashboard() {
                             className="flex !w-40 !text-sm border border-gray-300 rounded px-2 py-1"
                             defaultValue="Cincinnati"
                           />
-                          <button type="submit" className="border border-blue-600 text-blue-700 bg-white hover:bg-blue-50 !text-sm px-4 py-1 rounded mr-1">Submit</button>
+                          <button type="submit" className="border border-primary text-primary bg-white hover:bg-primary !text-sm px-4 py-1 rounded mr-1">Submit</button>
                           <button
                             type="button"
-                            className="text-blue-700 underline !text-sm px-2 py-1 bg-transparent border-none"
+                            className="text-primary underline !text-sm px-2 py-1 bg-transparent border-none"
                             onClick={() => setShowCityForm(false)}
                           >
                             Cancel
@@ -232,17 +232,17 @@ function Dashboard() {
                     </div>
                     <div className="space-y-4 p-2 pb-0">
                       <div className="border-t border-gray-200 ">
-                        <h3 className="font-Normal !text-xs !text-blue-600">WordPress 6.8.2 Maintenance Release</h3>
+                        <h3 className="font-Normal !text-xs !text-primary">WordPress 6.8.2 Maintenance Release</h3>
                       </div>
-                      <h3 className="font-Normal !text-xs !text-blue-600">Celebrating Kim Parsell: 2025 WordCamp US Scholarship Applications Open!</h3>
-                      <h3 className="font-Normal !text-xs !text-blue-600">HeroPress: The Journey Of Pratik Bhatt</h3>
-                      <h3 className="font-Normal !text-xs !text-blue-600">WordPress.org blog: WordPress 6.8.2 Maintenance Release</h3>
-                      <h3 className="font-Normal !text-xs !text-blue-600">Open Channels FM: Rethinking Global Remote Work Opportunities in Open Source </h3>
+                      <h3 className="font-Normal !text-xs !text-primary">Celebrating Kim Parsell: 2025 WordCamp US Scholarship Applications Open!</h3>
+                      <h3 className="font-Normal !text-xs !text-primary">HeroPress: The Journey Of Pratik Bhatt</h3>
+                      <h3 className="font-Normal !text-xs !text-primary">WordPress.org blog: WordPress 6.8.2 Maintenance Release</h3>
+                      <h3 className="font-Normal !text-xs !text-primary">Open Channels FM: Rethinking Global Remote Work Opportunities in Open Source </h3>
                     </div>
                     <div className="flex gap-4 p-2 border-t border-gray-200 mt-4 text-sm">
-                      <a href="#" className="text-blue-600 hover:underline">Meetups</a>
-                      <a href="#" className="text-blue-600 hover:underline">WordCamps</a>
-                      <a href="#" className="text-blue-600 hover:underline">News</a>
+                      <a href="#" className="text-primary hover:underline">Meetups</a>
+                      <a href="#" className="text-primary hover:underline">WordCamps</a>
+                      <a href="#" className="text-primary hover:underline">News</a>
                     </div>
                   </div>
                 </div>
