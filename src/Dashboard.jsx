@@ -113,8 +113,8 @@ function Dashboard() {
               {/* Site Health Status */}
                 <div className="bg-white shadow border">
                   <h2 className="!text-lg !font-normal border p-2 mb-2">Site Health Status</h2>
-                  <div className="flex flex-col md:flex-row h-20 p-2">
-                    <div className="h-20 w-20 md:w-30 mt-4 items-center mb-3">
+                  <div className="flex md:flex-col md:flex-row h-20 p-2">
+                    <div className="md:h-20 md:w-20 md:w-30 md:mt-4 items-center mb-3">
                       <div className="w-12 text-yellow-400 rounded-full flex items-center justify-center ml-8">
                         <i className="fa-solid fa-spinner"></i>
                     </div>
@@ -124,7 +124,7 @@ function Dashboard() {
                   </div>
                     <p className="md:w-65 !text-sm">You're the best of this issue that should be addressed as soon as possible to improve its performance and security.</p>
                 </div>
-                  <div className="flex flex-col md:flex-row relative md:-right-32">
+                  <div className="flex  md:flex-row relative md:-right-32">
                     <p className="!text-sm md:w-60 !text-gray-600">
                       Take a look at the <span className="!font-bold">8 items</span> on the <Link>Site Health screen.</Link>
                 </p>

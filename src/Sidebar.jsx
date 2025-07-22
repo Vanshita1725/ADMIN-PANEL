@@ -183,7 +183,7 @@ const Sidebar = () => {
     <>
       {/* Mobile Sidebar Toggle */}
       <button
-        className="lg:hidden fixed top-8 right-4 z-50 text-black p-2"
+        className="lg:hidden fixed top-15  right-4 z-50 text-black p-2"
         onClick={() => setIsMobileOpen(true)}
         aria-label="Open sidebar"
       >
@@ -191,13 +191,13 @@ const Sidebar = () => {
       </button>
 
       {/* Mobile Sidebar */}
-      <div className={`fixed inset-0 z-40 lg:hidden ${isMobileOpen ? '' : 'pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-40  lg:hidden ${isMobileOpen ? '' : 'pointer-events-none'}`}>
         <div className={`absolute inset-0 opacity-40 ${isMobileOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setIsMobileOpen(false)} />
-        <aside className={`bg-[#23282d] text-white fixed top-10 left-0 h-full w-full max-w-xs transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <button className="absolute top-4 right-4 text-white" onClick={() => setIsMobileOpen(false)}>
+        <aside className={`bg-[#23282d] text-white !overflow-y-auto mt-10 left-0 h-full w-full max-w-xs transition-transform duration-300 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <button className="absolute top-7 right-4 text-white" onClick={() => setIsMobileOpen(false)}>
             <i className="fa-solid fa-xmark"></i>
           </button>
-          <ul className="flex flex-col gap-1 mt-10 px-2">
+          <ul className="flex flex-col gap-1 !mt-15 px-2 !overflow-y-auto">
             {menuItems.map((item, idx) => (
               <li key={item.label} className="text-sm flex flex-col gap-1 relative">
                 <div
